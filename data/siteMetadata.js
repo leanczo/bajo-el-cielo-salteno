@@ -9,11 +9,11 @@ const siteMetadata = {
     'Bajo Cielo Salteño es un blog personal dedicado a documentar mis excursiones de trekking por la impresionante provincia de Salta, Argentina',
   language: 'es-ar',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
+  siteUrl: 'https://bajo-cielo-salteno.vercel.app',
   siteRepo: 'https://github.com/leanczo/bajo-cielo-salteno',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
-  socialBanner: '/static/images/twitter-card.png',
+  socialBanner: '/static/images/avatar.png',
   email: 'lean094c@gmail.com',
   github: 'https://github.com/leanczo',
   twitter: 'https://twitter.com/Twitter',
