@@ -188,7 +188,6 @@ export const BlogSEO = ({
             __html: JSON.stringify(structuredData, null, 2),
           }}
         />
-        <script defer src="/_vercel/insights/script.js"></script>
       </Head>
     </>
   )
