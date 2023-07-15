@@ -40,14 +40,16 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
                 <article>
                   <div className="space-y-2 xl:grid  xl:grid-cols-4 xl:items-center xl:gap-x-4 xl:space-y-0">
                     <dl className="xl:row-span-2">
-                      <Image
-                        alt="thumbnail"
-                        className="rounded object-cover"
-                        src={images[0]}
-                        layout="responsive"
-                        width={640}
-                        height={400}
-                      />
+                      <Link href={`/blog/${slug}`}>
+                        <Image
+                          alt="thumbnail"
+                          className="rounded object-cover"
+                          src={images[0]}
+                          layout="responsive"
+                          width={640}
+                          height={400}
+                        />
+                      </Link>
                     </dl>
                     <div className="space-y-5 xl:col-span-3">
                       <div className="space-y-6">
