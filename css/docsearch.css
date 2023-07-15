@@ -50,11 +50,11 @@
 }
 
 .light .DocSearch-Input {
-  @apply hover:ring-0 ring-0;
+  @apply ring-0 hover:ring-0;
 }
 
 .dark .DocSearch-Input {
-  @apply hover:ring-0 ring-0;
+  @apply ring-0 hover:ring-0;
 }
 
 .DocSearch-Container {
