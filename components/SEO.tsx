@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import siteMetadata from '@/data/siteMetadata'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog, Authors } from 'contentlayer/generated'
+import Script from 'next/script'
 interface CommonSEOProps {
   title: string
   description: string
@@ -157,6 +158,23 @@ export const BlogSEO = ({
             __html: JSON.stringify(structuredData, null, 2),
           }}
         />
+        <>
+          <Script
+            src="https://giscus.app/client.js"
+            data-repo="leanczo/bajo-cielo-salteno"
+            data-repo-id="R_kgDOJ7uz0w"
+            data-category="General"
+            data-category-id="DIC_kwDOJ7uz084CX6V7"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="bottom"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            async
+          />
+        </>
       </Head>
     </>
   )
