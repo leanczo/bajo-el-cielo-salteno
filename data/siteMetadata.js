@@ -2,15 +2,15 @@
 
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Bajo cielo salteño',
+  title: 'Bajo el cielo salteño',
   author: 'Leandro Cardozo',
-  headerTitle: 'Bajo cielo salteño',
+  headerTitle: 'Bajo el cielo salteño',
   description:
-    'Bajo Cielo Salteño es un blog personal dedicado a documentar mis excursiones de trekking por la impresionante provincia de Salta, Argentina',
+    'Bajo el Cielo Salteño es un blog personal dedicado a documentar mis excursiones de trekking por la impresionante provincia de Salta, Argentina',
   language: 'es-ar',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://bajo-cielo-salteno.vercel.app',
-  siteRepo: 'https://github.com/leanczo/bajo-cielo-salteno',
+  siteUrl: 'https://bajo-el-cielo-salteno.vercel.app',
+  siteRepo: 'https://github.com/leanczo/bajo-el-cielo-salteno',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/logo.png',

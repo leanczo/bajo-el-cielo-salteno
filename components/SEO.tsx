@@ -161,7 +161,7 @@ export const BlogSEO = ({
         <>
           <Script
             src="https://giscus.app/client.js"
-            data-repo="leanczo/bajo-cielo-salteno"
+            data-repo="leanczo/bajo-el-cielo-salteno"
             data-repo-id="R_kgDOJ7uz0w"
             data-category="General"
             data-category-id="DIC_kwDOJ7uz084CX6V7"
