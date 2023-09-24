@@ -38,12 +38,12 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
             return (
               <li key={slug} className="py-12">
                 <article>
-                  <div className="space-y-2 xl:grid  xl:grid-cols-4 xl:items-center xl:gap-x-4 xl:space-y-0">
-                    <dl className="xl:row-span-2">
+                  <div className="h-48 space-y-2 overflow-hidden xl:grid xl:grid-cols-4 xl:items-center xl:gap-x-4 xl:space-y-0">
+                    <dl className="xl:row-span-2 ">
                       <Link href={`/blog/${slug}`}>
                         <Image
                           alt="thumbnail"
-                          className="rounded object-cover"
+                          className=" rounded object-cover"
                           src={images[0]}
                           layout="responsive"
                           width={640}
