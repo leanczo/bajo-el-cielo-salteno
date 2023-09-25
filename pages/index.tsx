@@ -6,9 +6,8 @@ import { sortedBlogPost, allCoreContent } from 'pliny/utils/contentlayer'
 import { InferGetStaticPropsType } from 'next'
 import { NewsletterForm } from 'pliny/ui/NewsletterForm'
 import { allBlogs } from 'contentlayer/generated'
-import Image from 'next/legacy/image'
+import Image from 'next/image'
 import type { Blog } from 'contentlayer/generated'
-
 
 const MAX_DISPLAY = 5
 
@@ -46,9 +45,13 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
                           alt="thumbnail"
                           className=" rounded object-cover"
                           src={images[0]}
-                          layout="responsive"
                           width={640}
                           height={400}
+                          sizes="100vw"
+                          style={{
+                            width: '100%',
+                            height: 'auto',
+                          }}
                         />
                       </Link>
                     </dl>
