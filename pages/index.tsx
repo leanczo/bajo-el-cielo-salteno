@@ -6,8 +6,9 @@ import { sortedBlogPost, allCoreContent } from 'pliny/utils/contentlayer'
 import { InferGetStaticPropsType } from 'next'
 import { NewsletterForm } from 'pliny/ui/NewsletterForm'
 import { allBlogs } from 'contentlayer/generated'
-import type { Blog } from 'contentlayer/generated'
 import Image from 'next/legacy/image'
+import type { Blog } from 'contentlayer/generated'
+
 
 const MAX_DISPLAY = 5
 
