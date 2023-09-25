@@ -6,7 +6,7 @@ const siteMetadata = {
   author: 'Leandro Cardozo',
   headerTitle: 'Bajo el cielo salteño',
   description:
-    'Bajo el Cielo Salteño es un blog personal dedicado a documentar mis excursiones de trekking por la impresionante provincia de Salta, Argentina',
+    'Bajo el Cielo Salteño es un blog personal en el que comparto mis aventuras de trekking, centrándome principalmente en la maravillosa provincia de Salta, Argentina',
   language: 'es-ar',
   theme: 'system', // system, dark or light
   siteUrl: 'https://bajo-el-cielo-salteno.vercel.app',
