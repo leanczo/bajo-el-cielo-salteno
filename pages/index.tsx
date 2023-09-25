@@ -7,7 +7,7 @@ import { InferGetStaticPropsType } from 'next'
 import { NewsletterForm } from 'pliny/ui/NewsletterForm'
 import { allBlogs } from 'contentlayer/generated'
 import type { Blog } from 'contentlayer/generated'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 
 const MAX_DISPLAY = 5
 
