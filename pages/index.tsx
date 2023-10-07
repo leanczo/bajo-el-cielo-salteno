@@ -9,7 +9,7 @@ import { allBlogs } from 'contentlayer/generated'
 import Image from 'next/image'
 import type { Blog } from 'contentlayer/generated'
 
-const MAX_DISPLAY = 5
+const MAX_DISPLAY = 10
 
 export const getStaticProps = async () => {
   const sortedPosts = sortedBlogPost(allBlogs) as Blog[]
