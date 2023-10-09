@@ -39,6 +39,7 @@ const CommonSEO = ({ title, description, ogType, ogImage, canonicalUrl }: Common
         rel="canonical"
         href={canonicalUrl ? canonicalUrl : `${siteMetadata.siteUrl}${router.asPath}`}
       />
+      <link rel="icon" href={siteMetadata.siteUrl + siteMetadata.socialBanner} />
     </Head>
   )
 }
