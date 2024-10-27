@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import { useRouter } from 'next/router'
-import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
+import { CoreContent } from 'pliny/utils/contentlayer'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 
 interface PaginationProps {
   totalPages: number
