@@ -20,6 +20,7 @@ const siteMetadata = {
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com',
   linkedin: 'https://www.linkedin.com/in/leanczo/',
+  react: 'https://leanczo.github.io/',
   locale: 'es-AR',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
