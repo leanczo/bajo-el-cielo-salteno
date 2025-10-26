@@ -27,7 +27,7 @@ const Carousel = ({ children }: CarouselProps) => {
   }
 
   return (
-    <div className="relative my-8 mx-auto max-w-4xl">
+    <div className="relative mx-auto my-8 max-w-4xl">
       {/* Carousel Container */}
       <div className="relative overflow-hidden rounded-lg shadow-lg">
         {/* Image Container */}
@@ -51,7 +51,11 @@ const Carousel = ({ children }: CarouselProps) => {
                 stroke="currentColor"
                 className="h-6 w-6"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5"
+                />
               </svg>
             </button>
             <button
@@ -67,7 +71,11 @@ const Carousel = ({ children }: CarouselProps) => {
                 stroke="currentColor"
                 className="h-6 w-6"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
               </svg>
             </button>
           </>
