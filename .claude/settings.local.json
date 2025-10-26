@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat:*)",
+      "Bash(pkill -f \"npm run build\")",
+      "Bash(git restore:*)",
+      "Bash(node --version:*)",
+      "Bash(nvm list:*)",
+      "Bash(cmd /c \"nvm list\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
