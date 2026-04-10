@@ -14,6 +14,7 @@ import siteMetadata from '@/data/siteMetadata'
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/master/data/${path}`
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const postDateTemplate: Intl.DateTimeFormatOptions = {
   weekday: 'long',
   year: 'numeric',
