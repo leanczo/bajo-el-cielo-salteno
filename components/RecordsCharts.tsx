@@ -26,9 +26,15 @@ function TopAltitudeChart({ data }: { data: TrekkingRecord[] }) {
     .slice(0, 10)
     .reverse() // recharts renders bottom-to-top so we reverse for descending visual
 
-  const CustomTooltip = ({ active, payload }: any) => {
+  const CustomTooltip = ({
+    active,
+    payload,
+  }: {
+    active?: boolean
+    payload?: { payload: TrekkingRecord }[]
+  }) => {
     if (active && payload && payload.length) {
-      const d = payload[0].payload as TrekkingRecord
+      const d = payload[0].payload
       return (
         <div className="rounded-lg border border-gray-200 bg-white px-3 py-2 shadow-md dark:border-gray-700 dark:bg-gray-800">
           <p className="font-medium text-gray-900 dark:text-gray-100">{d.nombre}</p>
@@ -120,11 +126,19 @@ function LocalityChart({ data }: { data: TrekkingRecord[] }) {
     .sort((a, b) => b[1] - a[1])
     .map(([localidad, cantidad]) => ({ localidad, cantidad }))
 
-  const CustomTooltip = ({ active, payload }: any) => {
+  const CustomTooltip = ({
+    active,
+    payload,
+  }: {
+    active?: boolean
+    payload?: { payload: { localidad: string }; value: number }[]
+  }) => {
     if (active && payload && payload.length) {
       return (
         <div className="rounded-lg border border-gray-200 bg-white px-3 py-2 shadow-md dark:border-gray-700 dark:bg-gray-800">
-          <p className="font-medium text-gray-900 dark:text-gray-100">{payload[0].payload.localidad}</p>
+          <p className="font-medium text-gray-900 dark:text-gray-100">
+            {payload[0].payload.localidad}
+          </p>
           <p className="text-sm text-blue-600 dark:text-blue-400">
             {payload[0].value} trekking{payload[0].value !== 1 ? 's' : ''}
           </p>

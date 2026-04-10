@@ -75,24 +75,14 @@ export default function Registro() {
   )
 }
 
-function StatCard({
-  label,
-  value,
-  sub,
-}: {
-  label: string
-  value: string
-  sub?: string
-}) {
+function StatCard({ label, value, sub }: { label: string; value: string; sub?: string }) {
   return (
     <div className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-900">
       <p className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
         {label}
       </p>
       <p className="mt-1 text-2xl font-bold text-teal-600 dark:text-teal-400">{value}</p>
-      {sub && (
-        <p className="mt-0.5 truncate text-xs text-gray-400 dark:text-gray-500">{sub}</p>
-      )}
+      {sub && <p className="mt-0.5 truncate text-xs text-gray-400 dark:text-gray-500">{sub}</p>}
     </div>
   )
 }
