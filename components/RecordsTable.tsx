@@ -48,13 +48,8 @@ export default function RecordsTable({ data }: { data: TrekkingRecord[] }) {
   }, [filtered, sortKey, sortDir])
 
   const SortIcon = ({ col }: { col: SortKey }) => {
-    if (sortKey !== col)
-      return <span className="ml-1 text-gray-400 dark:text-gray-600">↕</span>
-    return (
-      <span className="ml-1 text-teal-500">
-        {sortDir === 'asc' ? '↑' : '↓'}
-      </span>
-    )
+    if (sortKey !== col) return <span className="ml-1 text-gray-400 dark:text-gray-600">↕</span>
+    return <span className="ml-1 text-teal-500">{sortDir === 'asc' ? '↑' : '↓'}</span>
   }
 
   const thClass =
@@ -86,10 +81,7 @@ export default function RecordsTable({ data }: { data: TrekkingRecord[] }) {
               <th className={thClass} onClick={() => handleSort('localidad')}>
                 Localidad <SortIcon col="localidad" />
               </th>
-              <th
-                className={`${thClass} text-center`}
-                onClick={() => handleSort('cantidad')}
-              >
+              <th className={`${thClass} text-center`} onClick={() => handleSort('cantidad')}>
                 Veces <SortIcon col="cantidad" />
               </th>
               <th
