@@ -84,10 +84,7 @@ export default function RecordsTable({ data }: { data: TrekkingRecord[] }) {
               <th className={`${thClass} text-center`} onClick={() => handleSort('cantidad')}>
                 Veces <SortIcon col="cantidad" />
               </th>
-              <th
-                className={`${thClass} text-right`}
-                onClick={() => handleSort('alturaMaxima')}
-              >
+              <th className={`${thClass} text-right`} onClick={() => handleSort('alturaMaxima')}>
                 Altura máx. <SortIcon col="alturaMaxima" />
               </th>
               <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400">
@@ -104,9 +101,7 @@ export default function RecordsTable({ data }: { data: TrekkingRecord[] }) {
                 <td className="px-4 py-3 font-medium text-gray-900 dark:text-gray-100">
                   {record.nombre}
                 </td>
-                <td className="px-4 py-3 text-gray-600 dark:text-gray-400">
-                  {record.localidad}
-                </td>
+                <td className="px-4 py-3 text-gray-600 dark:text-gray-400">{record.localidad}</td>
                 <td className="px-4 py-3 text-center">
                   <span
                     className={`inline-flex items-center justify-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
