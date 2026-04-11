@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { TrekkingRecord } from '@/data/recordsData'
 import {
   BarChart,
@@ -54,46 +55,54 @@ function TopAltitudeChart({ data }: { data: TrekkingRecord[] }) {
         Top 10 por altura máxima
       </h3>
       <ResponsiveContainer width="100%" height={360}>
-        <BarChart data={top10} layout="vertical" margin={{ left: 8, right: 60, top: 0, bottom: 0 }}>
-          <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e5e7eb" />
-          <XAxis
-            type="number"
-            domain={[0, 7000]}
-            tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`}
-            tick={{ fontSize: 11, fill: '#6b7280' }}
-            tickLine={false}
-            axisLine={false}
-          />
-          <YAxis
-            dataKey="nombre"
-            type="category"
-            width={160}
-            tick={{ fontSize: 11, fill: '#6b7280' }}
-            tickLine={false}
-            axisLine={false}
-          />
-          <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(20,184,166,0.08)' }} />
-          <Bar dataKey="alturaMaxima" radius={[0, 6, 6, 0]} maxBarSize={28}>
-            {top10.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={
-                  (entry.alturaMaxima ?? 0) >= 5000
-                    ? '#f97316'
-                    : (entry.alturaMaxima ?? 0) >= 4000
-                    ? TEAL_DARK
-                    : TEAL
-                }
+        {
+          (
+            <BarChart
+              data={top10}
+              layout="vertical"
+              margin={{ left: 8, right: 60, top: 0, bottom: 0 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e5e7eb" />
+              <XAxis
+                type="number"
+                domain={[0, 7000]}
+                tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`}
+                tick={{ fontSize: 11, fill: '#6b7280' }}
+                tickLine={false}
+                axisLine={false}
               />
-            ))}
-            <LabelList
-              dataKey="alturaMaxima"
-              position="right"
-              formatter={(v: number) => `${v.toLocaleString('es-AR')} m`}
-              style={{ fontSize: 11, fill: '#6b7280' }}
-            />
-          </Bar>
-        </BarChart>
+              <YAxis
+                dataKey="nombre"
+                type="category"
+                width={160}
+                tick={{ fontSize: 11, fill: '#6b7280' }}
+                tickLine={false}
+                axisLine={false}
+              />
+              <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(20,184,166,0.08)' }} />
+              <Bar dataKey="alturaMaxima" radius={[0, 6, 6, 0]} maxBarSize={28}>
+                {top10.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={
+                      (entry.alturaMaxima ?? 0) >= 5000
+                        ? '#f97316'
+                        : (entry.alturaMaxima ?? 0) >= 4000
+                        ? TEAL_DARK
+                        : TEAL
+                    }
+                  />
+                ))}
+                <LabelList
+                  dataKey="alturaMaxima"
+                  position="right"
+                  formatter={(v: number) => `${v.toLocaleString('es-AR')} m`}
+                  style={{ fontSize: 11, fill: '#6b7280' }}
+                />
+              </Bar>
+            </BarChart>
+          ) as ReactNode
+        }
       </ResponsiveContainer>
       <p className="mt-2 text-center text-xs text-gray-400 dark:text-gray-500">
         <span className="mr-3 inline-flex items-center gap-1">
@@ -154,32 +163,36 @@ function LocalityChart({ data }: { data: TrekkingRecord[] }) {
         Trekkings por localidad
       </h3>
       <ResponsiveContainer width="100%" height={360}>
-        <BarChart data={chartData} margin={{ left: 0, right: 16, top: 0, bottom: 60 }}>
-          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
-          <XAxis
-            dataKey="localidad"
-            tick={{ fontSize: 11, fill: '#6b7280' }}
-            tickLine={false}
-            axisLine={false}
-            angle={-40}
-            textAnchor="end"
-            interval={0}
-          />
-          <YAxis
-            allowDecimals={false}
-            tick={{ fontSize: 11, fill: '#6b7280' }}
-            tickLine={false}
-            axisLine={false}
-          />
-          <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(59,130,246,0.08)' }} />
-          <Bar dataKey="cantidad" fill={BLUE} radius={[6, 6, 0, 0]} maxBarSize={40}>
-            <LabelList
-              dataKey="cantidad"
-              position="top"
-              style={{ fontSize: 11, fill: '#6b7280' }}
-            />
-          </Bar>
-        </BarChart>
+        {
+          (
+            <BarChart data={chartData} margin={{ left: 0, right: 16, top: 0, bottom: 60 }}>
+              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
+              <XAxis
+                dataKey="localidad"
+                tick={{ fontSize: 11, fill: '#6b7280' }}
+                tickLine={false}
+                axisLine={false}
+                angle={-40}
+                textAnchor="end"
+                interval={0}
+              />
+              <YAxis
+                allowDecimals={false}
+                tick={{ fontSize: 11, fill: '#6b7280' }}
+                tickLine={false}
+                axisLine={false}
+              />
+              <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(59,130,246,0.08)' }} />
+              <Bar dataKey="cantidad" fill={BLUE} radius={[6, 6, 0, 0]} maxBarSize={40}>
+                <LabelList
+                  dataKey="cantidad"
+                  position="top"
+                  style={{ fontSize: 11, fill: '#6b7280' }}
+                />
+              </Bar>
+            </BarChart>
+          ) as ReactNode
+        }
       </ResponsiveContainer>
       <p className="mt-2 text-center text-xs text-gray-400 dark:text-gray-500">
         Solo localidades con 2 o más trekkings
