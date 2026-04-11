@@ -54,11 +54,7 @@ function TopAltitudeChart({ data }: { data: TrekkingRecord[] }) {
         Top 10 por altura máxima
       </h3>
       <ResponsiveContainer width="100%" height={360}>
-        <BarChart
-          data={top10}
-          layout="vertical"
-          margin={{ left: 8, right: 60, top: 0, bottom: 0 }}
-        >
+        <BarChart data={top10} layout="vertical" margin={{ left: 8, right: 60, top: 0, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e5e7eb" />
           <XAxis
             type="number"
@@ -85,8 +81,8 @@ function TopAltitudeChart({ data }: { data: TrekkingRecord[] }) {
                   (entry.alturaMaxima ?? 0) >= 5000
                     ? '#f97316'
                     : (entry.alturaMaxima ?? 0) >= 4000
-                      ? TEAL_DARK
-                      : TEAL
+                    ? TEAL_DARK
+                    : TEAL
                 }
               />
             ))}
