@@ -20,6 +20,12 @@ const BLUE = '#3b82f6'
 // ── Top-10 by altitude ──────────────────────────────────────────────────────
 
 function TopAltitudeChart({ data }: { data: TrekkingRecord[] }) {
+  // Función para determinar el color de la barra
+  function getBarColor(altura: number | null | undefined) {
+    if ((altura ?? 0) >= 5000) return '#f97316'
+    if ((altura ?? 0) >= 4000) return TEAL_DARK
+    return TEAL
+  }
   const top10 = [...data]
     .filter((r) => r.alturaMaxima !== null)
     .sort((a, b) => (b.alturaMaxima ?? 0) - (a.alturaMaxima ?? 0))
@@ -53,6 +59,7 @@ function TopAltitudeChart({ data }: { data: TrekkingRecord[] }) {
       <h3 className="mb-4 text-lg font-semibold text-gray-800 dark:text-gray-200">
         Top 10 por altura máxima
       </h3>
+      {/* El fragmento soluciona el error de tipo de ReactNode/Element */}
       <ResponsiveContainer width="100%" height={360}>
         <BarChart data={top10} layout="vertical" margin={{ left: 8, right: 60, top: 0, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e5e7eb" />
@@ -75,16 +82,7 @@ function TopAltitudeChart({ data }: { data: TrekkingRecord[] }) {
           <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(20,184,166,0.08)' }} />
           <Bar dataKey="alturaMaxima" radius={[0, 6, 6, 0]} maxBarSize={28}>
             {top10.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={
-                  (entry.alturaMaxima ?? 0) >= 5000
-                    ? '#f97316'
-                    : (entry.alturaMaxima ?? 0) >= 4000
-                    ? TEAL_DARK
-                    : TEAL
-                }
-              />
+              <Cell key={`cell-${index}`} fill={getBarColor(entry.alturaMaxima)} />
             ))}
             <LabelList
               dataKey="alturaMaxima"
