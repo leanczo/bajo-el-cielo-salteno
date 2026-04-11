@@ -17,6 +17,10 @@ const TEAL = '#14b8a6'
 const TEAL_DARK = '#0d9488'
 const BLUE = '#3b82f6'
 
+// recharts v3 + @types/react 18 type incompatibility workaround
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const AnyBarChart = BarChart as any
+
 // ── Top-10 by altitude ──────────────────────────────────────────────────────
 
 function TopAltitudeChart({ data }: { data: TrekkingRecord[] }) {
@@ -59,47 +63,42 @@ function TopAltitudeChart({ data }: { data: TrekkingRecord[] }) {
       <h3 className="mb-4 text-lg font-semibold text-gray-800 dark:text-gray-200">
         Top 10 por altura máxima
       </h3>
-      {/* El fragmento soluciona el error de tipo de ReactNode/Element */}
       <ResponsiveContainer width="100%" height={360}>
-        {
-          (
-            <BarChart
-              data={top10}
-              layout="vertical"
-              margin={{ left: 8, right: 60, top: 0, bottom: 0 }}
-            >
-              <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e5e7eb" />
-              <XAxis
-                type="number"
-                domain={[0, 7000]}
-                tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`}
-                tick={{ fontSize: 11, fill: '#6b7280' }}
-                tickLine={false}
-                axisLine={false}
-              />
-              <YAxis
-                dataKey="nombre"
-                type="category"
-                width={160}
-                tick={{ fontSize: 11, fill: '#6b7280' }}
-                tickLine={false}
-                axisLine={false}
-              />
-              <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(20,184,166,0.08)' }} />
-              <Bar dataKey="alturaMaxima" radius={[0, 6, 6, 0]} maxBarSize={28}>
-                {top10.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={getBarColor(entry.alturaMaxima)} />
-                ))}
-                <LabelList
-                  dataKey="alturaMaxima"
-                  position="right"
-                  formatter={(v: number) => `${v.toLocaleString('es-AR')} m`}
-                  style={{ fontSize: 11, fill: '#6b7280' }}
-                />
-              </Bar>
-            </BarChart>
-          ) as JSX.Element
-        }
+        <AnyBarChart
+          data={top10}
+          layout="vertical"
+          margin={{ left: 8, right: 60, top: 0, bottom: 0 }}
+        >
+          <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e5e7eb" />
+          <XAxis
+            type="number"
+            domain={[0, 7000]}
+            tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`}
+            tick={{ fontSize: 11, fill: '#6b7280' }}
+            tickLine={false}
+            axisLine={false}
+          />
+          <YAxis
+            dataKey="nombre"
+            type="category"
+            width={160}
+            tick={{ fontSize: 11, fill: '#6b7280' }}
+            tickLine={false}
+            axisLine={false}
+          />
+          <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(20,184,166,0.08)' }} />
+          <Bar dataKey="alturaMaxima" radius={[0, 6, 6, 0]} maxBarSize={28}>
+            {top10.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={getBarColor(entry.alturaMaxima)} />
+            ))}
+            <LabelList
+              dataKey="alturaMaxima"
+              position="right"
+              formatter={(v: number) => `${v.toLocaleString('es-AR')} m`}
+              style={{ fontSize: 11, fill: '#6b7280' }}
+            />
+          </Bar>
+        </AnyBarChart>
       </ResponsiveContainer>
       <p className="mt-2 text-center text-xs text-gray-400 dark:text-gray-500">
         <span className="mr-3 inline-flex items-center gap-1">
@@ -160,7 +159,7 @@ function LocalityChart({ data }: { data: TrekkingRecord[] }) {
         Trekkings por localidad
       </h3>
       <ResponsiveContainer width="100%" height={360}>
-        <BarChart data={chartData} margin={{ left: 0, right: 16, top: 0, bottom: 60 }}>
+        <AnyBarChart data={chartData} margin={{ left: 0, right: 16, top: 0, bottom: 60 }}>
           <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
           <XAxis
             dataKey="localidad"
@@ -185,7 +184,7 @@ function LocalityChart({ data }: { data: TrekkingRecord[] }) {
               style={{ fontSize: 11, fill: '#6b7280' }}
             />
           </Bar>
-        </BarChart>
+        </AnyBarChart>
       </ResponsiveContainer>
       <p className="mt-2 text-center text-xs text-gray-400 dark:text-gray-500">
         Solo localidades con 2 o más trekkings
