@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react'
 import { TrekkingRecord } from '@/data/recordsData'
 import {
   BarChart,
@@ -88,8 +87,8 @@ function TopAltitudeChart({ data }: { data: TrekkingRecord[] }) {
                       (entry.alturaMaxima ?? 0) >= 5000
                         ? '#f97316'
                         : (entry.alturaMaxima ?? 0) >= 4000
-                        ? TEAL_DARK
-                        : TEAL
+                          ? TEAL_DARK
+                          : TEAL
                     }
                   />
                 ))}
@@ -101,7 +100,7 @@ function TopAltitudeChart({ data }: { data: TrekkingRecord[] }) {
                 />
               </Bar>
             </BarChart>
-          ) as ReactNode
+          ) as any
         }
       </ResponsiveContainer>
       <p className="mt-2 text-center text-xs text-gray-400 dark:text-gray-500">
@@ -191,7 +190,7 @@ function LocalityChart({ data }: { data: TrekkingRecord[] }) {
                 />
               </Bar>
             </BarChart>
-          ) as ReactNode
+          ) as any
         }
       </ResponsiveContainer>
       <p className="mt-2 text-center text-xs text-gray-400 dark:text-gray-500">
