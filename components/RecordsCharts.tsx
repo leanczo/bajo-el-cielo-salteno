@@ -87,8 +87,8 @@ function TopAltitudeChart({ data }: { data: TrekkingRecord[] }) {
                       (entry.alturaMaxima ?? 0) >= 5000
                         ? '#f97316'
                         : (entry.alturaMaxima ?? 0) >= 4000
-                          ? TEAL_DARK
-                          : TEAL
+                        ? TEAL_DARK
+                        : TEAL
                     }
                   />
                 ))}
