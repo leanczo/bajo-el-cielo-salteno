@@ -19,6 +19,8 @@ const BLUE = '#3b82f6'
 
 // recharts v3 + @types/react 18 type incompatibility workaround
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
+const AnyResponsiveContainer = ResponsiveContainer as any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const AnyBarChart = BarChart as any
 
 // ── Top-10 by altitude ──────────────────────────────────────────────────────
@@ -63,7 +65,7 @@ function TopAltitudeChart({ data }: { data: TrekkingRecord[] }) {
       <h3 className="mb-4 text-lg font-semibold text-gray-800 dark:text-gray-200">
         Top 10 por altura máxima
       </h3>
-      <ResponsiveContainer width="100%" height={360}>
+      <AnyResponsiveContainer width="100%" height={360}>
         <AnyBarChart
           data={top10}
           layout="vertical"
@@ -99,7 +101,7 @@ function TopAltitudeChart({ data }: { data: TrekkingRecord[] }) {
             />
           </Bar>
         </AnyBarChart>
-      </ResponsiveContainer>
+      </AnyResponsiveContainer>
       <p className="mt-2 text-center text-xs text-gray-400 dark:text-gray-500">
         <span className="mr-3 inline-flex items-center gap-1">
           <span className="inline-block h-2 w-4 rounded" style={{ background: TEAL }} />
@@ -158,7 +160,7 @@ function LocalityChart({ data }: { data: TrekkingRecord[] }) {
       <h3 className="mb-4 text-lg font-semibold text-gray-800 dark:text-gray-200">
         Trekkings por localidad
       </h3>
-      <ResponsiveContainer width="100%" height={360}>
+      <AnyResponsiveContainer width="100%" height={360}>
         <AnyBarChart data={chartData} margin={{ left: 0, right: 16, top: 0, bottom: 60 }}>
           <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
           <XAxis
@@ -185,7 +187,7 @@ function LocalityChart({ data }: { data: TrekkingRecord[] }) {
             />
           </Bar>
         </AnyBarChart>
-      </ResponsiveContainer>
+      </AnyResponsiveContainer>
       <p className="mt-2 text-center text-xs text-gray-400 dark:text-gray-500">
         Solo localidades con 2 o más trekkings
       </p>
