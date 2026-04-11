@@ -61,39 +61,44 @@ function TopAltitudeChart({ data }: { data: TrekkingRecord[] }) {
       </h3>
       {/* El fragmento soluciona el error de tipo de ReactNode/Element */}
       <ResponsiveContainer width="100%" height={360}>
-        {(
-          <BarChart data={top10} layout="vertical" margin={{ left: 8, right: 60, top: 0, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e5e7eb" />
-            <XAxis
-              type="number"
-              domain={[0, 7000]}
-              tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`}
-              tick={{ fontSize: 11, fill: '#6b7280' }}
-              tickLine={false}
-              axisLine={false}
-            />
-            <YAxis
-              dataKey="nombre"
-              type="category"
-              width={160}
-              tick={{ fontSize: 11, fill: '#6b7280' }}
-              tickLine={false}
-              axisLine={false}
-            />
-            <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(20,184,166,0.08)' }} />
-            <Bar dataKey="alturaMaxima" radius={[0, 6, 6, 0]} maxBarSize={28}>
-              {top10.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={getBarColor(entry.alturaMaxima)} />
-              ))}
-              <LabelList
-                dataKey="alturaMaxima"
-                position="right"
-                formatter={(v: number) => `${v.toLocaleString('es-AR')} m`}
-                style={{ fontSize: 11, fill: '#6b7280' }}
+        {
+          (
+            <BarChart
+              data={top10}
+              layout="vertical"
+              margin={{ left: 8, right: 60, top: 0, bottom: 0 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e5e7eb" />
+              <XAxis
+                type="number"
+                domain={[0, 7000]}
+                tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`}
+                tick={{ fontSize: 11, fill: '#6b7280' }}
+                tickLine={false}
+                axisLine={false}
               />
-            </Bar>
-          </BarChart>
-        ) as JSX.Element
+              <YAxis
+                dataKey="nombre"
+                type="category"
+                width={160}
+                tick={{ fontSize: 11, fill: '#6b7280' }}
+                tickLine={false}
+                axisLine={false}
+              />
+              <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(20,184,166,0.08)' }} />
+              <Bar dataKey="alturaMaxima" radius={[0, 6, 6, 0]} maxBarSize={28}>
+                {top10.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={getBarColor(entry.alturaMaxima)} />
+                ))}
+                <LabelList
+                  dataKey="alturaMaxima"
+                  position="right"
+                  formatter={(v: number) => `${v.toLocaleString('es-AR')} m`}
+                  style={{ fontSize: 11, fill: '#6b7280' }}
+                />
+              </Bar>
+            </BarChart>
+          ) as JSX.Element
         }
       </ResponsiveContainer>
       <p className="mt-2 text-center text-xs text-gray-400 dark:text-gray-500">
