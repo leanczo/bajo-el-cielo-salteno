@@ -5,7 +5,7 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
+  Tooltip as RechartsTooltip,
   ResponsiveContainer,
   Cell,
   LabelList,
@@ -22,6 +22,8 @@ const BLUE = '#3b82f6'
 const AnyResponsiveContainer = ResponsiveContainer as any
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const AnyBarChart = BarChart as any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const AnyTooltip = RechartsTooltip as any
 
 // ── Top-10 by altitude ──────────────────────────────────────────────────────
 
@@ -88,7 +90,7 @@ function TopAltitudeChart({ data }: { data: TrekkingRecord[] }) {
             tickLine={false}
             axisLine={false}
           />
-          <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(20,184,166,0.08)' }} />
+          <AnyTooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(20,184,166,0.08)' }} />
           <Bar dataKey="alturaMaxima" radius={[0, 6, 6, 0]} maxBarSize={28}>
             {top10.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={getBarColor(entry.alturaMaxima)} />
@@ -178,7 +180,7 @@ function LocalityChart({ data }: { data: TrekkingRecord[] }) {
             tickLine={false}
             axisLine={false}
           />
-          <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(59,130,246,0.08)' }} />
+          <AnyTooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(59,130,246,0.08)' }} />
           <Bar dataKey="cantidad" fill={BLUE} radius={[6, 6, 0, 0]} maxBarSize={40}>
             <LabelList
               dataKey="cantidad"
