@@ -24,10 +24,7 @@ const totalSalidas = recordsData.reduce((sum, r) => sum + r.cantidad, 0)
 
 const cumbresCincoMil = recordsData.filter((r) => (r.alturaMaxima ?? 0) >= 5000).length
 
-const alturaAcumulada = recordsData.reduce(
-  (sum, r) => sum + (r.alturaMaxima ?? 0) * r.cantidad,
-  0
-)
+const alturaAcumulada = recordsData.reduce((sum, r) => sum + (r.alturaMaxima ?? 0) * r.cantidad, 0)
 
 // ── Component ───────────────────────────────────────────────────────────────
 
@@ -68,7 +65,9 @@ export default function Registro() {
             <StatCard label="Cumbres 5000+" value={cumbresCincoMil.toString()} />
             <StatCard
               label="Altura acumulada"
-              value={`${(alturaAcumulada / 1000).toLocaleString('es-AR', { maximumFractionDigits: 0 })} km`}
+              value={`${(alturaAcumulada / 1000).toLocaleString('es-AR', {
+                maximumFractionDigits: 0,
+              })} km`}
             />
           </div>
         </div>
