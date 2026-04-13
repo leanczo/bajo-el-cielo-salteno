@@ -22,6 +22,13 @@ const topLocalidad = Object.entries(localidadCount).sort((a, b) => b[1] - a[1])[
 
 const totalSalidas = recordsData.reduce((sum, r) => sum + r.cantidad, 0)
 
+const cumbresCincoMil = recordsData.filter((r) => (r.alturaMaxima ?? 0) >= 5000).length
+
+const alturaAcumulada = recordsData.reduce(
+  (sum, r) => sum + (r.alturaMaxima ?? 0) * r.cantidad,
+  0
+)
+
 // ── Component ───────────────────────────────────────────────────────────────
 
 export default function Registro() {
@@ -45,7 +52,7 @@ export default function Registro() {
 
         {/* Stats */}
         <div className="py-8">
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
             <StatCard label="Trekkings distintos" value={totalTrekkings.toString()} />
             <StatCard label="Salidas totales" value={totalSalidas.toString()} />
             <StatCard
@@ -57,6 +64,11 @@ export default function Registro() {
               label="Zona más visitada"
               value={topLocalidad[0]}
               sub={`${topLocalidad[1]} trekkings`}
+            />
+            <StatCard label="Cumbres 5000+" value={cumbresCincoMil.toString()} />
+            <StatCard
+              label="Altura acumulada"
+              value={`${(alturaAcumulada / 1000).toLocaleString('es-AR', { maximumFractionDigits: 0 })} km`}
             />
           </div>
         </div>
