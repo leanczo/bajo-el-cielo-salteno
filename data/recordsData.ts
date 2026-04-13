@@ -157,7 +157,7 @@ export const recordsData: TrekkingRecord[] = [
   {
     nombre: 'Cerro Elefante',
     localidad: 'San Lorenzo',
-    cantidad: 5,
+    cantidad: 6,
     alturaMaxima: 1934,
     observacion: '',
   },
