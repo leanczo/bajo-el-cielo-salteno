@@ -297,9 +297,9 @@ export const recordsData: TrekkingRecord[] = [
   {
     nombre: 'El Balcon',
     localidad: 'Incamayo',
-    cantidad: 2,
+    cantidad: 3,
     alturaMaxima: 3233,
-    observacion: '',
+    observacion: 'Mejor tiempo: cumbre a las 11, bajamos a las 14',
   },
   {
     nombre: 'El dorado',
