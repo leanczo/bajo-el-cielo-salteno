@@ -24,6 +24,8 @@ const AnyResponsiveContainer = ResponsiveContainer as any
 const AnyBarChart = BarChart as any
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const AnyTooltip = RechartsTooltip as any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const AnyBar = Bar as any
 
 // ── Top-10 by altitude ──────────────────────────────────────────────────────
 
@@ -91,7 +93,7 @@ function TopAltitudeChart({ data }: { data: TrekkingRecord[] }) {
             axisLine={false}
           />
           <AnyTooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(20,184,166,0.08)' }} />
-          <Bar dataKey="alturaMaxima" radius={[0, 6, 6, 0]} maxBarSize={28}>
+          <AnyBar dataKey="alturaMaxima" radius={[0, 6, 6, 0]} maxBarSize={28}>
             {top10.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={getBarColor(entry.alturaMaxima)} />
             ))}
@@ -101,7 +103,7 @@ function TopAltitudeChart({ data }: { data: TrekkingRecord[] }) {
               formatter={(v: number) => `${v.toLocaleString('es-AR')} m`}
               style={{ fontSize: 11, fill: '#6b7280' }}
             />
-          </Bar>
+          </AnyBar>
         </AnyBarChart>
       </AnyResponsiveContainer>
       <p className="mt-2 text-center text-xs text-gray-400 dark:text-gray-500">
