@@ -183,13 +183,13 @@ function LocalityChart({ data }: { data: TrekkingRecord[] }) {
             axisLine={false}
           />
           <AnyTooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(59,130,246,0.08)' }} />
-          <Bar dataKey="cantidad" fill={BLUE} radius={[6, 6, 0, 0]} maxBarSize={40}>
+          <AnyBar dataKey="cantidad" fill={BLUE} radius={[6, 6, 0, 0]} maxBarSize={40}>
             <LabelList
               dataKey="cantidad"
               position="top"
               style={{ fontSize: 11, fill: '#6b7280' }}
             />
-          </Bar>
+          </AnyBar>
         </AnyBarChart>
       </AnyResponsiveContainer>
       <p className="mt-2 text-center text-xs text-gray-400 dark:text-gray-500">
