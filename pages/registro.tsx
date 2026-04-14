@@ -122,9 +122,7 @@ export default function Registro() {
 
         {/* Pending */}
         <div className="py-8">
-          <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100">
-            Pendientes
-          </h2>
+          <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100">Pendientes</h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {pendingData.map((p) => (
               <PendingCard key={p.nombre} trek={p} />

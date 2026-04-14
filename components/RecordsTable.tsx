@@ -37,13 +37,7 @@ function calcDificultad(distancia: number | null, desnivel: number | null): numb
 
 // ── Static stars display ────────────────────────────────────────────────────
 
-function Stars({
-  value,
-  suggested = false,
-}: {
-  value: number | null
-  suggested?: boolean
-}) {
+function Stars({ value, suggested = false }: { value: number | null; suggested?: boolean }) {
   if (value === null) return <span className="text-gray-300 dark:text-gray-700">—</span>
   return (
     <span
@@ -385,7 +379,9 @@ export default function RecordsTable({
                         calcDificultad(record.distancia, record.desnivel) !== null && (
                           <button
                             type="button"
-                            title={`Sugerido por distancia + desnivel: ${DIFFICULTY_LABEL[calcDificultad(record.distancia, record.desnivel)!]}`}
+                            title={`Sugerido por distancia + desnivel: ${
+                              DIFFICULTY_LABEL[calcDificultad(record.distancia, record.desnivel)!]
+                            }`}
                             onClick={() =>
                               updateRecord(record.nombre, record.localidad, {
                                 dificultad: calcDificultad(record.distancia, record.desnivel),
@@ -393,7 +389,8 @@ export default function RecordsTable({
                             }
                             className="text-xs text-teal-500 hover:text-teal-400 dark:text-teal-400"
                           >
-                            ↓ Usar sugerencia ({DIFFICULTY_LABEL[calcDificultad(record.distancia, record.desnivel)!]})
+                            ↓ Usar sugerencia (
+                            {DIFFICULTY_LABEL[calcDificultad(record.distancia, record.desnivel)!]})
                           </button>
                         )}
                     </div>
