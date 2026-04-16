@@ -6,7 +6,11 @@
       "Bash(npm uninstall:*)",
       "Bash(node -e ':*)",
       "Bash(npx prettier:*)",
-      "Bash(npx next:*)"
+      "Bash(npx next:*)",
+      "Bash(node -e \"require\\('react-leaflet'\\); console.log\\('ok'\\)\")",
+      "Bash(node scripts/gpx-download-helper.mjs)",
+      "Bash(npx tsc:*)",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/react-leaflet/package.json'\\).version\\)\")"
     ]
   }
 }

@@ -6,6 +6,7 @@ import { PageSEO } from '@/components/SEO'
 import RecordsTable from '@/components/RecordsTable'
 
 const RecordsCharts = dynamic(() => import('@/components/RecordsCharts'), { ssr: false })
+const TrekkingMap = dynamic(() => import('@/components/TrekkingMap'), { ssr: false })
 
 // ── Computed stats ──────────────────────────────────────────────────────────
 
@@ -107,6 +108,12 @@ export default function Registro() {
         {/* Charts */}
         <div className="py-8">
           <RecordsCharts data={recordsData} />
+        </div>
+
+        {/* Map */}
+        <div className="py-8">
+          <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-gray-100">Mapa de rutas</h2>
+          <TrekkingMap data={recordsData} />
         </div>
 
         {/* Table */}

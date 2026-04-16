@@ -15,6 +15,8 @@ export type TrekkingRecord = {
   desnivel: number | null
   /** URL de referencia (Wikiloc, AllTrails, etc.) */
   url: string | null
+  /** Nombre del archivo GPX en public/gpx/ (sin extensión). Si no se especifica, se deriva de la URL. */
+  gpx: string | null
 }
 
 export type PendingRecord = {
