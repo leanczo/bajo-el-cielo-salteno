@@ -160,11 +160,11 @@ export default function RecordsTable({
       // For dificultad, use the effective value (stored or auto-calculated)
       let valA =
         sortKey === 'dificultad'
-          ? (a.dificultad ?? calcDificultad(a.distancia, a.desnivel))
+          ? a.dificultad ?? calcDificultad(a.distancia, a.desnivel)
           : a[sortKey]
       let valB =
         sortKey === 'dificultad'
-          ? (b.dificultad ?? calcDificultad(b.distancia, b.desnivel))
+          ? b.dificultad ?? calcDificultad(b.distancia, b.desnivel)
           : b[sortKey]
 
       if (valA === null) return 1
@@ -211,7 +211,10 @@ export default function RecordsTable({
               <th className={thClass} onClick={() => handleSort('nombre')}>
                 Nombre <SortIcon col="nombre" />
               </th>
-              <th className={`${thClass} hidden sm:table-cell`} onClick={() => handleSort('localidad')}>
+              <th
+                className={`${thClass} hidden sm:table-cell`}
+                onClick={() => handleSort('localidad')}
+              >
                 Localidad <SortIcon col="localidad" />
               </th>
               <th className={`${thClass} text-center`} onClick={() => handleSort('cantidad')}>
@@ -237,7 +240,7 @@ export default function RecordsTable({
                 <span className="hidden sm:inline">Dificultad</span>
                 <SortIcon col="dificultad" />
               </th>
-              <th className="hidden px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-600 sm:table-cell dark:text-gray-400">
+              <th className="hidden px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 sm:table-cell">
                 Observación
               </th>
             </tr>
@@ -288,7 +291,7 @@ export default function RecordsTable({
                   ) : null}
                 </td>
 
-                <td className="px-2 py-2 font-medium text-gray-900 sm:px-4 sm:py-3 dark:text-gray-100">
+                <td className="px-2 py-2 font-medium text-gray-900 dark:text-gray-100 sm:px-4 sm:py-3">
                   {isEditMode ? (
                     <input
                       type="text"
@@ -305,7 +308,7 @@ export default function RecordsTable({
                     record.nombre
                   )}
                 </td>
-                <td className="hidden px-4 py-3 text-gray-600 sm:table-cell dark:text-gray-400">
+                <td className="hidden px-4 py-3 text-gray-600 dark:text-gray-400 sm:table-cell">
                   {isEditMode ? (
                     <input
                       type="text"
@@ -351,7 +354,7 @@ export default function RecordsTable({
                     </span>
                   )}
                 </td>
-                <td className="px-2 py-2 text-right text-gray-700 sm:px-4 sm:py-3 dark:text-gray-300">
+                <td className="px-2 py-2 text-right text-gray-700 dark:text-gray-300 sm:px-4 sm:py-3">
                   {isEditMode ? (
                     <input
                       type="number"
@@ -380,7 +383,7 @@ export default function RecordsTable({
                 </td>
 
                 {/* Distancia */}
-                <td className="px-2 py-2 text-right text-gray-700 sm:px-4 sm:py-3 dark:text-gray-300">
+                <td className="px-2 py-2 text-right text-gray-700 dark:text-gray-300 sm:px-4 sm:py-3">
                   {isEditMode ? (
                     <input
                       type="number"
@@ -409,7 +412,7 @@ export default function RecordsTable({
                 </td>
 
                 {/* Desnivel */}
-                <td className="px-2 py-2 text-right text-gray-700 sm:px-4 sm:py-3 dark:text-gray-300">
+                <td className="px-2 py-2 text-right text-gray-700 dark:text-gray-300 sm:px-4 sm:py-3">
                   {isEditMode ? (
                     <input
                       type="number"
@@ -476,7 +479,7 @@ export default function RecordsTable({
                   )}
                 </td>
 
-                <td className="hidden px-4 py-3 text-sm text-gray-500 sm:table-cell dark:text-gray-400">
+                <td className="hidden px-4 py-3 text-sm text-gray-500 dark:text-gray-400 sm:table-cell">
                   {isEditMode ? (
                     <input
                       type="text"
