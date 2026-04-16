@@ -5,7 +5,7 @@
     "cantidad": 1,
     "alturaMaxima": 4600,
     "observacion": "Se comienza a 4300 metros de altura",
-    "dificultad": 3,
+    "dificultad": null,
     "distancia": 11.65,
     "desnivel": 300,
     "url": "https://es.wikiloc.com/rutas-senderismo/tour-7-lagunas-de-ausangate-116365808"
@@ -16,9 +16,9 @@
     "cantidad": 1,
     "alturaMaxima": 3000,
     "observacion": "El que esta al lado del pacuy, a la izquierda",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
+    "dificultad": null,
+    "distancia": 5,
+    "desnivel": 500,
     "url": null
   },
   {
@@ -27,10 +27,10 @@
     "cantidad": 3,
     "alturaMaxima": 1802,
     "observacion": "",
-    "dificultad": 1,
+    "dificultad": null,
     "distancia": 2,
     "desnivel": 68,
-    "url": null
+    "url": "https://es.wikiloc.com/rutas-senderismo/jujuy-angosto-de-jaire-135566483"
   },
   {
     "nombre": "Cachi Adentro (Camping)",
@@ -38,9 +38,9 @@
     "cantidad": 2,
     "alturaMaxima": 2800,
     "observacion": "",
-    "dificultad": 1,
-    "distancia": null,
-    "desnivel": null,
+    "dificultad": null,
+    "distancia": 5,
+    "desnivel": 200,
     "url": null
   },
   {
@@ -49,7 +49,7 @@
     "cantidad": 3,
     "alturaMaxima": 1388,
     "observacion": "",
-    "dificultad": 3,
+    "dificultad": null,
     "distancia": 15,
     "desnivel": 454,
     "url": "https://es.wikiloc.com/rutas-senderismo/cascada-de-alemania-46543617"
@@ -60,7 +60,7 @@
     "cantidad": 1,
     "alturaMaxima": 2133,
     "observacion": "",
-    "dificultad": 1,
+    "dificultad": null,
     "distancia": 2.35,
     "desnivel": 265,
     "url": "https://es.wikiloc.com/rutas-senderismo/cascada-de-barcena-jujuy-97013162"
@@ -71,7 +71,7 @@
     "cantidad": 2,
     "alturaMaxima": 2131,
     "observacion": "Tiene una duracion de 2 horas aproximadamente",
-    "dificultad": 2,
+    "dificultad": null,
     "distancia": 3.29,
     "desnivel": 329,
     "url": "https://es.wikiloc.com/rutas-senderismo/cascada-la-horqueta-10841916"
@@ -82,7 +82,7 @@
     "cantidad": 1,
     "alturaMaxima": 1751,
     "observacion": "",
-    "dificultad": 2,
+    "dificultad": null,
     "distancia": 10.28,
     "desnivel": 311,
     "url": "https://es.wikiloc.com/rutas-senderismo/cascada-de-lesser-salta-58504966"
@@ -93,7 +93,7 @@
     "cantidad": 1,
     "alturaMaxima": 2123,
     "observacion": "",
-    "dificultad": 2,
+    "dificultad": null,
     "distancia": 5.29,
     "desnivel": 475,
     "url": "https://es.wikiloc.com/rutas-senderismo/cascada-los-panos-jujuy-28049290"
@@ -104,7 +104,7 @@
     "cantidad": 1,
     "alturaMaxima": 2400,
     "observacion": "En una hora se puede llegar",
-    "dificultad": 1,
+    "dificultad": null,
     "distancia": 3.58,
     "desnivel": 409,
     "url": "https://es.wikiloc.com/rutas-senderismo/cascada-del-rio-pascha-primer-track-que-se-sube-146183416"
@@ -115,7 +115,7 @@
     "cantidad": 1,
     "alturaMaxima": 2000,
     "observacion": "En una hora se puede llegar",
-    "dificultad": 1,
+    "dificultad": null,
     "distancia": 3.77,
     "desnivel": 433,
     "url": "https://eu.wikiloc.com/ibilbide-senderismo/cascada-saladillo-200838553"
@@ -126,7 +126,7 @@
     "cantidad": 2,
     "alturaMaxima": 2000,
     "observacion": "Tardamos una hora y 10 minutos en subir rápido. Para bajar, un poco menos de una hora",
-    "dificultad": 2,
+    "dificultad": null,
     "distancia": 4.61,
     "desnivel": 463,
     "url": "https://es.wikiloc.com/rutas-senderismo/cascada-escondida-el-mollar-finca-los-sauces-quijano-salta-argentina-96996767"
@@ -137,7 +137,7 @@
     "cantidad": 1,
     "alturaMaxima": 1600,
     "observacion": "3 horas y 35 para subir. 2:25 para bajar. El.cole paso tipo 18:10",
-    "dificultad": 4,
+    "dificultad": null,
     "distancia": 18.65,
     "desnivel": 1200,
     "url": "https://es.wikiloc.com/rutas-senderismo/cerro-zapla-y-cascada-del-ucumar-94375625"
@@ -148,10 +148,10 @@
     "cantidad": 2,
     "alturaMaxima": 2029,
     "observacion": "",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 10.45,
+    "desnivel": 518,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cascada-corralito-88803245"
   },
   {
     "nombre": "Cascada escondida",
@@ -159,10 +159,10 @@
     "cantidad": 5,
     "alturaMaxima": 1840,
     "observacion": "A buena velocidad se llega en hora y media",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 6.67,
+    "desnivel": 444,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cascada-escondida-de-la-quebrada-de-san-lorenzo-salta-157910921"
   },
   {
     "nombre": "Cascada Salto alto y escondida",
@@ -170,10 +170,10 @@
     "cantidad": 1,
     "alturaMaxima": 2000,
     "observacion": "Empezamos a las 11, llegamos abajo a las 16",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 14.57,
+    "desnivel": 631,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cascada-salto-alto-san-lorenzo-salta-244508667"
   },
   {
     "nombre": "Cascadas del sunchal",
@@ -181,10 +181,10 @@
     "cantidad": 2,
     "alturaMaxima": 1800,
     "observacion": "Tardamos 2 horas y media en ir y volver",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 7,
+    "desnivel": 362,
+    "url": "https://es.wikiloc.com/rutas-senderismo/25-may-2025-215299579"
   },
   {
     "nombre": "Cerro Arenal",
@@ -192,10 +192,10 @@
     "cantidad": 1,
     "alturaMaxima": 4600,
     "observacion": "Tardamos como 4 horas y media o 5 horas en llegar",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 5.37,
+    "desnivel": 1066,
+    "url": "https://es.wikiloc.com/rutas-alpinismo/cerro-arenal-las-cuevas-salta-112138463"
   },
   {
     "nombre": "Cerro Chivilme",
@@ -203,10 +203,10 @@
     "cantidad": 2,
     "alturaMaxima": 2235,
     "observacion": "",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 12.32,
+    "desnivel": 837,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cerro-chivilme-78609011"
   },
   {
     "nombre": "Cerro de la Virgen",
@@ -214,10 +214,10 @@
     "cantidad": 1,
     "alturaMaxima": 1561,
     "observacion": "",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 4,
+    "desnivel": 290,
+    "url": "https://es.wikiloc.com/rutas-senderismo/santuario-virgen-del-cerro-salta-20485476"
   },
   {
     "nombre": "Cerro el Despechado",
@@ -225,10 +225,10 @@
     "cantidad": 2,
     "alturaMaxima": 2600,
     "observacion": "Subimos 8:45. cumbre a 12:30, bajamos a las 15",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 16,
+    "desnivel": 1000,
+    "url": "https://es.wikiloc.com/rutas-mountain-bike/el-despechado-109248599"
   },
   {
     "nombre": "Cerro Elefante",
@@ -236,10 +236,10 @@
     "cantidad": 6,
     "alturaMaxima": 1934,
     "observacion": "",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 2.63,
+    "desnivel": 460,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cerro-elefante-san-lorenzo-salta-15227967"
   },
   {
     "nombre": "Cerro la Cruz",
@@ -247,10 +247,10 @@
     "cantidad": 3,
     "alturaMaxima": 1581,
     "observacion": "",
-    "dificultad": 1,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 7,
+    "desnivel": 284,
+    "url": "https://es.wikiloc.com/rutas-senderismo/subida-cerro-la-cruz-x-calle-club-tigre-50560448"
   },
   {
     "nombre": "Cerro la Pedrera",
@@ -258,10 +258,10 @@
     "cantidad": 1,
     "alturaMaxima": 1764,
     "observacion": "Se sube en dos horas, desde el parque industrial",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 4,
+    "desnivel": 483,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cerro-la-pedrera-52854078"
   },
   {
     "nombre": "Cerro las Tres Cruces",
@@ -269,10 +269,10 @@
     "cantidad": 2,
     "alturaMaxima": 2295,
     "observacion": "",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 10.49,
+    "desnivel": 834,
+    "url": "https://es.wikiloc.com/rutas-senderismo/abra-de-las-tres-cruces-y-abra-del-san-lorenzo-15697988"
   },
   {
     "nombre": "Cerro Pacuy",
@@ -280,10 +280,10 @@
     "cantidad": 2,
     "alturaMaxima": 4200,
     "observacion": "",
-    "dificultad": 5,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 28,
+    "desnivel": 2200,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cerro-pacuy-4-220-msnm-por-chorrillos-63771657"
   },
   {
     "nombre": "Cerro Pompeya",
@@ -291,10 +291,10 @@
     "cantidad": 2,
     "alturaMaxima": 4080,
     "observacion": "",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 6.19,
+    "desnivel": 319,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cerro-pompeya-san-antonio-de-los-cobres-salta-181493020"
   },
   {
     "nombre": "Cerro Pucheta",
@@ -302,10 +302,10 @@
     "cantidad": 2,
     "alturaMaxima": 1973,
     "observacion": "",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 7.4,
+    "desnivel": 589,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cerro-pucheta-la-calderilla-salta-80396760"
   },
   {
     "nombre": "Cerro Varnet",
@@ -313,10 +313,10 @@
     "cantidad": 2,
     "alturaMaxima": 1421,
     "observacion": "",
-    "dificultad": 1,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 7.57,
+    "desnivel": 650,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cerro-varnet-camino-de-las-antenas-la-caldera-salta-172894211"
   },
   {
     "nombre": "Chacaltaya",
@@ -324,10 +324,10 @@
     "cantidad": 1,
     "alturaMaxima": 5400,
     "observacion": "No es un trekking muy largo",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 2.72,
+    "desnivel": 150,
+    "url": "https://es.wikiloc.com/rutas-alpinismo/chacaltaya-bolivia-74853911"
   },
   {
     "nombre": "Chorrillo del Salto",
@@ -335,10 +335,10 @@
     "cantidad": 1,
     "alturaMaxima": 432,
     "observacion": "",
-    "dificultad": 1,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 7.53,
+    "desnivel": 173,
+    "url": "https://es.wikiloc.com/rutas-senderismo/chorrillo-del-salto-el-chalten-patagonia-160012973"
   },
   {
     "nombre": "Circular Elefante y cascada escondida",
@@ -346,10 +346,10 @@
     "cantidad": 2,
     "alturaMaxima": 2000,
     "observacion": "",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 8.83,
+    "desnivel": 642,
+    "url": "https://es.wikiloc.com/rutas-senderismo/circular-elefante-c-escondida-quebrada-de-san-lorenzo-119123311"
   },
   {
     "nombre": "Cruz del cielo",
@@ -357,10 +357,10 @@
     "cantidad": 1,
     "alturaMaxima": 2000,
     "observacion": "Tardamos una hora y media en subir y 50 minutos en bajar",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 6.16,
+    "desnivel": 370,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cruz-del-cielo-cabra-corral-223684897"
   },
   {
     "nombre": "Cueva del Diablo",
@@ -368,7 +368,7 @@
     "cantidad": 1,
     "alturaMaxima": 3000,
     "observacion": "",
-    "dificultad": 1,
+    "dificultad": null,
     "distancia": null,
     "desnivel": null,
     "url": null
@@ -379,10 +379,10 @@
     "cantidad": 1,
     "alturaMaxima": 1200,
     "observacion": "",
-    "dificultad": 1,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 0.68,
+    "desnivel": 63,
+    "url": "https://es.wikiloc.com/rutas-senderismo/la-fuente-del-jaguar-122272226"
   },
   {
     "nombre": "Cuevas Ablome",
@@ -390,7 +390,7 @@
     "cantidad": 1,
     "alturaMaxima": 1120,
     "observacion": "Hay que ir en catamaran",
-    "dificultad": 1,
+    "dificultad": null,
     "distancia": null,
     "desnivel": null,
     "url": null
@@ -401,10 +401,10 @@
     "cantidad": 1,
     "alturaMaxima": 2980,
     "observacion": "Fui con Salta expediciones",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 7.35,
+    "desnivel": 173,
+    "url": "https://es.wikiloc.com/rutas-senderismo/trekking-a-las-cuevas-de-acsibi-en-seclantes-salta-80194064"
   },
   {
     "nombre": "Cuevas Pintadas",
@@ -412,7 +412,7 @@
     "cantidad": 1,
     "alturaMaxima": 1944,
     "observacion": "Mi primer trekking",
-    "dificultad": 1,
+    "dificultad": null,
     "distancia": null,
     "desnivel": null,
     "url": null
@@ -422,8 +422,8 @@
     "localidad": "Campo Quijano",
     "cantidad": 1,
     "alturaMaxima": 2800,
-    "observacion": "",
-    "dificultad": 1,
+    "observacion": "Fue un trekking cerca de los tuneles",
+    "dificultad": null,
     "distancia": null,
     "desnivel": null,
     "url": null
@@ -434,10 +434,10 @@
     "cantidad": 1,
     "alturaMaxima": 4500,
     "observacion": "Subimos 7:10, cumbre en 12:35 y bajamos a las 16:35",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 11.55,
+    "desnivel": 969,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cerro-andina-las-cuevas-salta-88935098"
   },
   {
     "nombre": "El Autodromo",
@@ -445,7 +445,7 @@
     "cantidad": 1,
     "alturaMaxima": 1150,
     "observacion": "Fue una vuelta cerca de la pista",
-    "dificultad": 1,
+    "dificultad": null,
     "distancia": null,
     "desnivel": null,
     "url": null
@@ -456,32 +456,32 @@
     "cantidad": 3,
     "alturaMaxima": 3233,
     "observacion": "Mejor tiempo: cumbre a las 11, bajamos a las 14",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 10.14,
+    "desnivel": 992,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cerro-balcon-salta-38207124"
   },
   {
-    "nombre": "El dorado",
+    "nombre": "El Dorado",
     "localidad": "Campo Quijano",
     "cantidad": 1,
     "alturaMaxima": 2450,
     "observacion": "Fuimos con Eva y alfred",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 12.69,
+    "desnivel": 981,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cerro-dorado-172719227"
   },
   {
     "nombre": "El Golgota",
     "localidad": "Incamayo",
     "cantidad": 3,
     "alturaMaxima": 3549,
-    "observacion": "",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "observacion": "Dos cumbres en la norte  y una en el Sur",
+    "dificultad": null,
+    "distancia": 16.93,
+    "desnivel": 1311,
+    "url": "https://es.wikiloc.com/rutas-senderismo/golgota-cumbre-norte-33755724"
   },
   {
     "nombre": "El Hormigal",
@@ -489,10 +489,10 @@
     "cantidad": 1,
     "alturaMaxima": 3410,
     "observacion": "Comenzamos a las 8 am, llegamos a cumbre cerca de 12:40. Salimos 13:30, llegamos a las 16:00 aprox al auto",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 14.23,
+    "desnivel": 846,
+    "url": "https://es.wikiloc.com/rutas-senderismo/el-hormigal-quebrada-del-toro-salta-argentina-200027131"
   },
   {
     "nombre": "El Moro",
@@ -500,10 +500,10 @@
     "cantidad": 4,
     "alturaMaxima": 1832,
     "observacion": "",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 6,
+    "desnivel": 524,
+    "url": "https://es.wikiloc.com/rutas-senderismo/el-moro-la-caldera-147096384"
   },
   {
     "nombre": "El Redondo",
@@ -511,10 +511,10 @@
     "cantidad": 2,
     "alturaMaxima": 3430,
     "observacion": "Se sufre con este",
-    "dificultad": 4,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 21,
+    "desnivel": 1278,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cerro-redondo-incamayo-53824266"
   },
   {
     "nombre": "El Remate",
@@ -522,10 +522,10 @@
     "cantidad": 1,
     "alturaMaxima": 5170,
     "observacion": "Mi segundo 5000",
-    "dificultad": 4,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 8.18,
+    "desnivel": 610,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cerro-el-remate-san-antonio-de-los-cobres-175011319"
   },
   {
     "nombre": "El Sillon del Inca",
@@ -533,10 +533,10 @@
     "cantidad": 1,
     "alturaMaxima": 3200,
     "observacion": "Es muy largo para hacerlo en el dia",
-    "dificultad": 4,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 17.36,
+    "desnivel": 1362,
+    "url": "https://es.wikiloc.com/rutas-senderismo/sillon-del-inca-en-el-dia-70390482"
   },
   {
     "nombre": "El Torreon",
@@ -544,10 +544,10 @@
     "cantidad": 2,
     "alturaMaxima": 3008,
     "observacion": "",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 11.15,
+    "desnivel": 915,
+    "url": "https://es.wikiloc.com/rutas-senderismo/el-torreon-86604608"
   },
   {
     "nombre": "El Trasatlantico",
@@ -555,10 +555,10 @@
     "cantidad": 2,
     "alturaMaxima": 2971,
     "observacion": "",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 5.58,
+    "desnivel": 634,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cerro-trasatlantico-14877879"
   },
   {
     "nombre": "El zorrito",
@@ -566,10 +566,10 @@
     "cantidad": 1,
     "alturaMaxima": 3200,
     "observacion": "Hay texto para mandar al blog",
-    "dificultad": 4,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 18,
+    "desnivel": 1500,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cerro-el-zorrito-cafayate-salta-61464543"
   },
   {
     "nombre": "Floresta-LaCandelaria-Pedrera",
@@ -577,10 +577,10 @@
     "cantidad": 1,
     "alturaMaxima": 1700,
     "observacion": "",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 11.71,
+    "desnivel": 1042,
+    "url": "https://es.wikiloc.com/rutas-senderismo/c-de-la-cruz-de-floresta-c-la-candelaria-c-de-la-pedrera-y-otro-170441170"
   },
   {
     "nombre": "Glaciar Ventanani",
@@ -588,10 +588,10 @@
     "cantidad": 1,
     "alturaMaxima": 5080,
     "observacion": "Tardamos mucho en llegar",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 10,
+    "desnivel": 459,
+    "url": "https://es.wikiloc.com/rutas-senderismo/glaciar-ventanani-141459626"
   },
   {
     "nombre": "Inca Cueva",
@@ -599,10 +599,10 @@
     "cantidad": 1,
     "alturaMaxima": 3896,
     "observacion": "",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 7.37,
+    "desnivel": 314,
+    "url": "https://es.wikiloc.com/rutas-senderismo/inca-cueva-jujuy-21030098"
   },
   {
     "nombre": "Isla del Sol Copacabana",
@@ -610,9 +610,9 @@
     "cantidad": 1,
     "alturaMaxima": 3800,
     "observacion": "Fue un trekking de una hora aproximadamente",
-    "dificultad": 1,
-    "distancia": null,
-    "desnivel": null,
+    "dificultad": null,
+    "distancia": 5,
+    "desnivel": 200,
     "url": null
   },
   {
@@ -621,10 +621,10 @@
     "cantidad": 1,
     "alturaMaxima": 3003,
     "observacion": "",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 13.44,
+    "desnivel": 1055,
+    "url": "https://es.wikiloc.com/rutas-senderismo/laguna-brava-73139356"
   },
   {
     "nombre": "Laguna Brava",
@@ -632,10 +632,10 @@
     "cantidad": 1,
     "alturaMaxima": 2492,
     "observacion": "",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 19.57,
+    "desnivel": 1353,
+    "url": "https://es.wikiloc.com/rutas-senderismo/laguna-brava-205799877"
   },
   {
     "nombre": "Laguna de los tres",
@@ -643,10 +643,10 @@
     "cantidad": 1,
     "alturaMaxima": 1197,
     "observacion": "Muy largo el trekking, pudimos bajar como a las 18",
-    "dificultad": 4,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 23,
+    "desnivel": 932,
+    "url": "https://es.wikiloc.com/rutas-senderismo/el-chalten-laguna-de-los-tres-32334523"
   },
   {
     "nombre": "Laguna Esmeralda Charquini",
@@ -654,10 +654,10 @@
     "cantidad": 1,
     "alturaMaxima": 5000,
     "observacion": "",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 2,
+    "desnivel": 245,
+    "url": "https://es.wikiloc.com/rutas-senderismo/laguna-esmeralda-charquini-159538229"
   },
   {
     "nombre": "Laguna Verde",
@@ -665,10 +665,10 @@
     "cantidad": 1,
     "alturaMaxima": 2344,
     "observacion": "",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 16.42,
+    "desnivel": 1024,
+    "url": "https://es.wikiloc.com/rutas-senderismo/laguna-verde-san-lorenzo-73135146"
   },
   {
     "nombre": "Lagunas de Yala",
@@ -676,7 +676,7 @@
     "cantidad": 2,
     "alturaMaxima": 2166,
     "observacion": "Mucho como trekking no cuenta",
-    "dificultad": 1,
+    "dificultad": null,
     "distancia": null,
     "desnivel": null,
     "url": null
@@ -687,10 +687,10 @@
     "cantidad": 2,
     "alturaMaxima": 2839,
     "observacion": "",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 22,
+    "desnivel": 1500,
+    "url": "https://es.wikiloc.com/rutas-senderismo/lagunas-del-cielo-la-silleta-salta-38577705"
   },
   {
     "nombre": "Lagunas del Toro",
@@ -698,9 +698,9 @@
     "cantidad": 1,
     "alturaMaxima": 3300,
     "observacion": "Fue un cerrito chiquito, frente a las lagunas, fue mas turistico",
-    "dificultad": 1,
-    "distancia": null,
-    "desnivel": null,
+    "dificultad": null,
+    "distancia": 1,
+    "desnivel": 100,
     "url": null
   },
   {
@@ -709,10 +709,10 @@
     "cantidad": 1,
     "alturaMaxima": 3400,
     "observacion": "Este fue una carrera",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 6,
+    "desnivel": 200,
+    "url": "https://es.wikiloc.com/rutas-carrera/las-cuevas-24-192865733"
   },
   {
     "nombre": "Los Cajones",
@@ -720,10 +720,10 @@
     "cantidad": 2,
     "alturaMaxima": 2160,
     "observacion": "Se puede llegar en 3 horas y media, a buen ritmo",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 14.37,
+    "desnivel": 935,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cajones-de-san-lorenzo-65301667"
   },
   {
     "nombre": "Machu Picchu",
@@ -731,10 +731,10 @@
     "cantidad": 1,
     "alturaMaxima": 2430,
     "observacion": "Es turistico, pero tiene partes complicadas",
-    "dificultad": 1,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 2.11,
+    "desnivel": 216,
+    "url": "https://es.wikiloc.com/rutas-senderismo/wayna-picchu-o-huayna-picchu-machu-picchu-peru-23100728"
   },
   {
     "nombre": "Malcante",
@@ -742,10 +742,10 @@
     "cantidad": 1,
     "alturaMaxima": 5224,
     "observacion": "Me falto 200 metros para llegar",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 7.44,
+    "desnivel": 1059,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cerro-malcante-5150msnm-ano-2024-con-protocolo-de-ascenso-175823708"
   },
   {
     "nombre": "Media Luna",
@@ -753,10 +753,10 @@
     "cantidad": 1,
     "alturaMaxima": 1400,
     "observacion": "Tardamos 2 horas y 15 en llegar a cumbre. Con fotos y todo como 5 horas. Para llegar una hora y media tal vez",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 6.89,
+    "desnivel": 526,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cerro-la-medialuna-metan-39215381"
   },
   {
     "nombre": "Mini-Trekking sobre el Glaciar Perito Moreno",
@@ -764,10 +764,10 @@
     "cantidad": 1,
     "alturaMaxima": 313,
     "observacion": "Es muy caro",
-    "dificultad": 1,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 4.3,
+    "desnivel": 132,
+    "url": "https://es.wikiloc.com/rutas-senderismo/minitrekking-hielo-y-aventura-pn-los-glaciares-santa-cruz-argentina-131966808"
   },
   {
     "nombre": "Mirador de la Cruz",
@@ -775,10 +775,10 @@
     "cantidad": 2,
     "alturaMaxima": 2627,
     "observacion": "Muy sencillo",
-    "dificultad": 1,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 2,
+    "desnivel": 200,
+    "url": "https://es.wikiloc.com/rutas-senderismo/mirador-la-cruz-66346927"
   },
   {
     "nombre": "Mirador de la Torre",
@@ -786,10 +786,10 @@
     "cantidad": 1,
     "alturaMaxima": 600,
     "observacion": "Solo pude hacer la mitad",
-    "dificultad": 4,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 7.95,
+    "desnivel": 305,
+    "url": "https://es.wikiloc.com/rutas-senderismo/el-chalten-sendero-al-mirador-del-cerro-torre-122495058"
   },
   {
     "nombre": "Muñano",
@@ -797,10 +797,10 @@
     "cantidad": 1,
     "alturaMaxima": 4100,
     "observacion": "Sirve para entrenar altura",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 10,
+    "desnivel": 235,
+    "url": "https://es.wikiloc.com/rutas-senderismo/caminata-en-munano-4000-msnm-105407521"
   },
   {
     "nombre": "Nevado de Acay",
@@ -808,10 +808,10 @@
     "cantidad": 2,
     "alturaMaxima": 5765,
     "observacion": "Subimos a las 7. cumbre 12:30, bajamos 16:00 maso",
-    "dificultad": 4,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 10,
+    "desnivel": 1135,
+    "url": "https://es.wikiloc.com/rutas-alpinismo/nevado-de-acay-101000200"
   },
   {
     "nombre": "Peña hueca - Rio capilla",
@@ -819,10 +819,10 @@
     "cantidad": 1,
     "alturaMaxima": 2000,
     "observacion": "4 horas para ir, 3 horas y media para volver, 20 km, Comenzamos 8:20 llegamos 12:15. Volvimos 1:30, llegamos 5 pm",
-    "dificultad": 4,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 22,
+    "desnivel": 1900,
+    "url": "https://es.wikiloc.com/rutas-senderismo/pena-hueca-rio-capillas-campo-quijano-187322014"
   },
   {
     "nombre": "Pucara",
@@ -830,10 +830,10 @@
     "cantidad": 2,
     "alturaMaxima": 2900,
     "observacion": "El punto mas alto de la caldera",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 10.89,
+    "desnivel": 750,
+    "url": "https://es.wikiloc.com/rutas-senderismo/pucara-de-incamayo-79084068"
   },
   {
     "nombre": "Quebrada de \"Runa\"",
@@ -841,7 +841,7 @@
     "cantidad": 1,
     "alturaMaxima": 1710,
     "observacion": "No tendria ese nombre, es en san felipe",
-    "dificultad": 1,
+    "dificultad": null,
     "distancia": null,
     "desnivel": null,
     "url": null
@@ -852,10 +852,10 @@
     "cantidad": 3,
     "alturaMaxima": 1582,
     "observacion": "En las costas",
-    "dificultad": 1,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 4.94,
+    "desnivel": 285,
+    "url": "https://es.wikiloc.com/rutas-senderismo/quebrada-de-arteaga-93020046"
   },
   {
     "nombre": "Quebrada de las Conchas",
@@ -863,10 +863,10 @@
     "cantidad": 3,
     "alturaMaxima": 1743,
     "observacion": "Camino Cafayate",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 818,
+    "desnivel": 166,
+    "url": "https://es.wikiloc.com/rutas-senderismo/la-yesera-quebrada-de-las-conchas-78375316"
   },
   {
     "nombre": "Quebrada del Sauzal",
@@ -874,7 +874,7 @@
     "cantidad": 1,
     "alturaMaxima": 1500,
     "observacion": "Dimos vuelta por un lugar que no tenia mucho camino",
-    "dificultad": 2,
+    "dificultad": null,
     "distancia": null,
     "desnivel": null,
     "url": null
@@ -885,10 +885,10 @@
     "cantidad": 1,
     "alturaMaxima": null,
     "observacion": "Duro como 4-5 horas. 16 km",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 14,
+    "desnivel": 200,
+    "url": "https://es.wikiloc.com/rutas-carrera/camino-a-viaducto-de-campo-quijano-43415006"
   },
   {
     "nombre": "Vinicunca",
@@ -896,10 +896,10 @@
     "cantidad": 1,
     "alturaMaxima": 5024,
     "observacion": "Frente al cerro arcoiris. Mi primer 5000",
-    "dificultad": 2,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 7.13,
+    "desnivel": 327,
+    "url": "https://es.wikiloc.com/rutas-senderismo/montana-vinicunca-hiking-35615390"
   },
   {
     "nombre": "Volcan Quehuar",
@@ -907,10 +907,10 @@
     "cantidad": 1,
     "alturaMaxima": 6130,
     "observacion": "Se puede hacer en 3 dias",
-    "dificultad": 5,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 19.62,
+    "desnivel": 2030,
+    "url": "https://es.wikiloc.com/rutas-alpinismo/vn-quewar-6-140-mts-2319524"
   },
   {
     "nombre": "Volcán Tuzgle",
@@ -918,10 +918,10 @@
     "cantidad": 1,
     "alturaMaxima": 5486,
     "observacion": "Subimos 5:15, cumbre 10:20, bajamos como a las 13:30 pero a 4600 msnm",
-    "dificultad": 3,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 8,
+    "desnivel": 830,
+    "url": "https://es.wikiloc.com/rutas-senderismo/volcan-tuzgle-69290415"
   },
   {
     "nombre": "El Pabellon",
@@ -929,9 +929,9 @@
     "cantidad": 1,
     "alturaMaxima": 3700,
     "observacion": "Empezamos a las 8, nos falto 300 metros. Fuimos con eva y alfred. Bajamos a las 2 hasta las 18 casi",
-    "dificultad": 4,
-    "distancia": null,
-    "desnivel": null,
-    "url": null
+    "dificultad": null,
+    "distancia": 13.48,
+    "desnivel": 1434,
+    "url": "https://es.wikiloc.com/rutas-senderismo/tafi-del-valle-cerro-pabellon-en-tucuman-14384359"
   }
 ]

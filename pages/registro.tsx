@@ -81,7 +81,7 @@ export default function Registro() {
 
         {/* Stats */}
         <div className="py-8">
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+          <div className="grid grid-cols-2 gap-2 sm:gap-4 sm:grid-cols-3 lg:grid-cols-6">
             <StatCard label="Trekkings distintos" value={totalTrekkings.toString()} />
             <StatCard label="Salidas totales" value={totalSalidas.toString()} />
             <StatCard
@@ -136,11 +136,11 @@ export default function Registro() {
 
 function StatCard({ label, value, sub }: { label: string; value: string; sub?: string }) {
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-900">
+    <div className="rounded-xl border border-gray-200 bg-white p-3 sm:p-5 dark:border-gray-700 dark:bg-gray-900">
       <p className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
         {label}
       </p>
-      <p className="mt-1 text-2xl font-bold text-teal-600 dark:text-teal-400">{value}</p>
+      <p className="mt-1 text-lg font-bold text-teal-600 sm:text-2xl dark:text-teal-400">{value}</p>
       {sub && <p className="mt-0.5 truncate text-xs text-gray-400 dark:text-gray-500">{sub}</p>}
     </div>
   )

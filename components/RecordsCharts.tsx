@@ -51,39 +51,36 @@ function useIsMobile() {
 
 // ── collapsible chart card ─────────────────────────────────────────────────
 
-function CollapsibleChartCard({ title, children }: { title: string; children: React.ReactNode }) {
-  const isMobile = useIsMobile()
-  const [expanded, setExpanded] = useState(false)
-  const isVisible = !isMobile || expanded
-
+function CollapsibleChartCard({
+  title,
+  children,
+  expanded,
+  onToggle,
+}: {
+  title: string
+  children: React.ReactNode
+  expanded: boolean
+  onToggle: () => void
+}) {
   return (
     <div className="rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-900">
-      {isMobile ? (
-        <button
-          className="flex w-full items-center justify-between"
-          onClick={() => setExpanded((v) => !v)}
-          aria-expanded={expanded}
-        >
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">{title}</h3>
-          <span
-            className={`ml-2 flex-shrink-0 text-gray-400 transition-transform duration-200 dark:text-gray-500 ${
-              expanded ? 'rotate-180' : ''
-            }`}
-          >
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </span>
-        </button>
-      ) : (
+      <button
+        className="flex w-full items-center justify-between"
+        onClick={onToggle}
+        aria-expanded={expanded}
+      >
         <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">{title}</h3>
-      )}
-      {isVisible && <div className="mt-4">{children}</div>}
+        <span
+          className={`ml-2 flex-shrink-0 text-gray-400 transition-transform duration-200 dark:text-gray-500 ${
+            expanded ? 'rotate-180' : ''
+          }`}
+        >
+          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </span>
+      </button>
+      {expanded && <div className="mt-4">{children}</div>}
     </div>
   )
 }
@@ -505,21 +502,40 @@ function MostRepeatedChart({ data }: { data: TrekkingRecord[] }) {
 // ── Public export ───────────────────────────────────────────────────────────
 
 export default function RecordsCharts({ data }: { data: TrekkingRecord[] }) {
+  const [row1, setRow1] = useState(false)
+  const [row2, setRow2] = useState(false)
+
   return (
     <div className="space-y-8">
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-        <CollapsibleChartCard title="Top 10 por altura máxima">
+        <CollapsibleChartCard
+          title="Top 10 por altura máxima"
+          expanded={row1}
+          onToggle={() => setRow1((v) => !v)}
+        >
           <TopAltitudeChart data={data} />
         </CollapsibleChartCard>
-        <CollapsibleChartCard title="Trekkings por localidad">
+        <CollapsibleChartCard
+          title="Trekkings por localidad"
+          expanded={row1}
+          onToggle={() => setRow1((v) => !v)}
+        >
           <LocalityChart data={data} />
         </CollapsibleChartCard>
       </div>
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-        <CollapsibleChartCard title="Distribución por altura">
+        <CollapsibleChartCard
+          title="Distribución por altura"
+          expanded={row2}
+          onToggle={() => setRow2((v) => !v)}
+        >
           <AltitudeRangeChart data={data} />
         </CollapsibleChartCard>
-        <CollapsibleChartCard title="Más repetidos">
+        <CollapsibleChartCard
+          title="Más repetidos"
+          expanded={row2}
+          onToggle={() => setRow2((v) => !v)}
+        >
           <MostRepeatedChart data={data} />
         </CollapsibleChartCard>
       </div>
