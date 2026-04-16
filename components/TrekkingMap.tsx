@@ -110,12 +110,7 @@ export default function TrekkingMap({ data }: { data: TrekkingRecord[] }) {
 
   return (
     <div className="relative overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700">
-      <MapContainer
-        center={[-24.7, -65.4]}
-        zoom={7}
-        style={{ height: 500 }}
-        className="z-0"
-      >
+      <MapContainer center={[-24.7, -65.4]} zoom={7} style={{ height: 500 }} className="z-0">
         <LayersControl position="topright">
           <LayersControl.BaseLayer name="Estándar">
             <TileLayer
@@ -153,9 +148,19 @@ export default function TrekkingMap({ data }: { data: TrekkingRecord[] }) {
                     {record.alturaMaxima.toLocaleString('es-AR')} msnm
                   </>
                 )}
-                {record.distancia && <>{' · '}{record.distancia.toLocaleString('es-AR')} km</>}
+                {record.distancia && (
+                  <>
+                    {' · '}
+                    {record.distancia.toLocaleString('es-AR')} km
+                  </>
+                )}
                 <br />
-                <a href={record.url ?? ''} target="_blank" rel="noopener noreferrer" style={{ color: '#0d9488' }}>
+                <a
+                  href={record.url ?? ''}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: '#0d9488' }}
+                >
                   Ver en Wikiloc ↗
                 </a>
               </div>
@@ -164,10 +169,7 @@ export default function TrekkingMap({ data }: { data: TrekkingRecord[] }) {
           return (
             <Fragment key={id}>
               {/* Route polyline */}
-              <Polyline
-                positions={coords}
-                pathOptions={{ color, weight: 2.5, opacity: 0.75 }}
-              />
+              <Polyline positions={coords} pathOptions={{ color, weight: 2.5, opacity: 0.75 }} />
               {/* Pin visible from far away */}
               <CircleMarker
                 center={coords[0]}

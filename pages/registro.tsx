@@ -112,7 +112,9 @@ export default function Registro() {
 
         {/* Map */}
         <div className="py-8">
-          <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-gray-100">Mapa de rutas</h2>
+          <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-gray-100">
+            Mapa de rutas
+          </h2>
           <TrekkingMap data={recordsData} />
         </div>
 
