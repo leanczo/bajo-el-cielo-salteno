@@ -1018,5 +1018,17 @@
     "desnivel": 1434,
     "url": "https://es.wikiloc.com/rutas-senderismo/tafi-del-valle-cerro-pabellon-en-tucuman-14384359",
     "gpx": null
+  },
+  {
+    "nombre": "Isla Incahuasi",
+    "localidad": "Bolivia",
+    "cantidad": 1,
+    "alturaMaxima": 3728,
+    "observacion": "Tardamos casi una hora con fotos y descanso",
+    "dificultad": null,
+    "distancia": 1.36,
+    "desnivel": 22,
+    "url": "https://es.wikiloc.com/rutas-senderismo/isla-incahuasi-salar-de-uyuni-bolivia-187881090",
+    "gpx": "isla-incahuasi-salar-de-uyuni-bolivia"
   }
 ]

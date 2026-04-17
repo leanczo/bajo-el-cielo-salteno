@@ -26,5 +26,3 @@ If you're interested in using this template for your own blog, here are the step
 2. Install the dependencies with `npm install` or `yarn install`.
 3. Run the project locally with `npm run dev` or `yarn dev`.
 4. Customize and create your content!
-
-
