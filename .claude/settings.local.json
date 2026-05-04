@@ -10,7 +10,8 @@
       "Bash(node -e \"require\\('react-leaflet'\\); console.log\\('ok'\\)\")",
       "Bash(node scripts/gpx-download-helper.mjs)",
       "Bash(npx tsc:*)",
-      "Bash(node -e \"console.log\\(require\\('./node_modules/react-leaflet/package.json'\\).version\\)\")"
+      "Bash(node -e \"console.log\\(require\\('./node_modules/react-leaflet/package.json'\\).version\\)\")",
+      "Bash(sort -t'\"' -k4)"
     ]
   }
 }

@@ -256,6 +256,9 @@ export default function TrekkingMap({ data }: { data: TrekkingRecord[] }) {
   const total = recordsWithUrl.length
 
   useEffect(() => {
+    let cancelled = false
+    const controller = new AbortController()
+
     setRoutes([])
     setLoaded(0)
     setSelectedId(null)
@@ -264,12 +267,12 @@ export default function TrekkingMap({ data }: { data: TrekkingRecord[] }) {
     recordsWithUrl.forEach(async (record) => {
       const id = record.gpx ?? extractId(record.url!)
       if (!id) {
-        setLoaded((n) => n + 1)
+        if (!cancelled) setLoaded((n) => n + 1)
         return
       }
       try {
-        const res = await fetch(`/gpx/${id}.gpx`)
-        if (res.ok) {
+        const res = await fetch(`/gpx/${id}.gpx`, { signal: controller.signal })
+        if (res.ok && !cancelled) {
           const text = await res.text()
           const { coords, elevation } = parseGpx(text)
           if (coords.length >= 2) {
@@ -277,11 +280,16 @@ export default function TrekkingMap({ data }: { data: TrekkingRecord[] }) {
           }
         }
       } catch {
-        // file not yet downloaded, skip silently
+        // AbortError or file not yet downloaded, skip silently
       } finally {
-        setLoaded((n) => n + 1)
+        if (!cancelled) setLoaded((n) => n + 1)
       }
     })
+
+    return () => {
+      cancelled = true
+      controller.abort()
+    }
   }, [recordsWithUrl])
 
   const allCoords = useMemo(() => routes.map((r) => r.coords), [routes])

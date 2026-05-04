@@ -1,7 +1,11 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, Fragment } from 'react'
+import dynamic from 'next/dynamic'
 import { TrekkingRecord } from '@/data/recordsData'
+import type { ElevPoint } from '@/components/RowElevationChart'
+
+const ElevationChart = dynamic(() => import('@/components/RowElevationChart'), { ssr: false })
 
 type SortKey =
   | 'nombre'
@@ -105,6 +109,53 @@ function StarEditor({
   )
 }
 
+// ── GPX helpers ──────────────────────────────────────────────────────────────
+
+function routeColor(alturaMaxima: number | null): string {
+  const h = alturaMaxima ?? 0
+  if (h >= 5000) return '#f97316'
+  if (h >= 4000) return '#0d9488'
+  if (h >= 3000) return '#22c55e'
+  return '#14b8a6'
+}
+
+function extractId(url: string): string | null {
+  return url?.match(/\/([^/]+)-\d+$/)?.[1] ?? null
+}
+
+function haversineKm(a: [number, number], b: [number, number]): number {
+  const R = 6371
+  const dLat = ((b[0] - a[0]) * Math.PI) / 180
+  const dLon = ((b[1] - a[1]) * Math.PI) / 180
+  const lat1 = (a[0] * Math.PI) / 180
+  const lat2 = (b[0] * Math.PI) / 180
+  const x = Math.sin(dLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) ** 2
+  return R * 2 * Math.atan2(Math.sqrt(x), Math.sqrt(1 - x))
+}
+
+function parseGpxElevation(text: string): ElevPoint[] {
+  const parser = new DOMParser()
+  const doc = parser.parseFromString(text, 'application/xml')
+  const pts = Array.from(doc.querySelectorAll('trkpt'))
+    .map((pt) => ({
+      lat: parseFloat(pt.getAttribute('lat') ?? '0'),
+      lon: parseFloat(pt.getAttribute('lon') ?? '0'),
+      ele: parseFloat(pt.querySelector('ele')?.textContent ?? '0'),
+    }))
+    .filter(({ lat, lon }) => !isNaN(lat) && !isNaN(lon) && lat !== 0 && lon !== 0)
+
+  const coords: [number, number][] = pts.map(({ lat, lon }) => [lat, lon])
+  let cumDist = 0
+  const points: ElevPoint[] = pts.map(({ ele }, i) => {
+    if (i > 0) cumDist += haversineKm(coords[i - 1], coords[i])
+    return { d: Math.round(cumDist * 100) / 100, ele: Math.round(ele) }
+  })
+
+  if (points.length <= 300) return points
+  const step = points.length / 300
+  return Array.from({ length: 300 }, (_, i) => points[Math.floor(i * step)])
+}
+
 // ── Save helper ─────────────────────────────────────────────────────────────
 
 async function saveRecord(nombre: string, localidad: string, patch: Partial<TrekkingRecord>) {
@@ -128,6 +179,8 @@ export default function RecordsTable({
   const [query, setQuery] = useState('')
   const [sortKey, setSortKey] = useState<SortKey>('nombre')
   const [sortDir, setSortDir] = useState<SortDir>('asc')
+  const [expandedKey, setExpandedKey] = useState<string | null>(null)
+  const [gpxCache, setGpxCache] = useState<Record<string, ElevPoint[] | null>>({})
 
   const handleSort = (key: SortKey) => {
     if (key === sortKey) {
@@ -136,6 +189,27 @@ export default function RecordsTable({
       setSortKey(key)
       setSortDir('asc')
     }
+  }
+
+  function toggleExpand(record: TrekkingRecord) {
+    const key = `${record.nombre}::${record.localidad}`
+    if (expandedKey === key) {
+      setExpandedKey(null)
+      return
+    }
+    setExpandedKey(key)
+    if (key in gpxCache) return
+    const id = record.gpx ?? extractId(record.url ?? '')
+    if (!id) {
+      setGpxCache((prev) => ({ ...prev, [key]: null }))
+      return
+    }
+    fetch(`/gpx/${id}.gpx`)
+      .then((r) => (r.ok ? r.text() : null))
+      .then((text) => {
+        setGpxCache((prev) => ({ ...prev, [key]: text ? parseGpxElevation(text) : null }))
+      })
+      .catch(() => setGpxCache((prev) => ({ ...prev, [key]: null })))
   }
 
   function updateRecord(nombre: string, localidad: string, patch: Partial<TrekkingRecord>) {
@@ -246,13 +320,18 @@ export default function RecordsTable({
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100 bg-white dark:divide-gray-800 dark:bg-gray-900">
-            {sorted.map((record, i) => (
+            {sorted.map((record, i) => {
+              const rowKey = `${record.nombre}::${record.localidad}`
+              const isExpanded = expandedKey === rowKey
+              const gpxId = record.gpx ?? extractId(record.url ?? '')
+              return (
+              <Fragment key={`${record.nombre}-${record.localidad}-${i}`}>
               <tr
-                key={`${record.nombre}-${record.localidad}-${i}`}
-                className="transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
+                className={`transition-colors hover:bg-gray-50 dark:hover:bg-gray-800${!isEditMode ? ' cursor-pointer select-none' : ''}`}
+                onClick={!isEditMode ? () => toggleExpand(record) : undefined}
               >
-                {/* Link */}
-                <td className="w-6 px-1 py-2 text-center sm:w-8 sm:px-2 sm:py-3">
+                {/* Expand indicator + Link */}
+                <td className="w-8 px-1 py-2 text-center sm:w-10 sm:px-2 sm:py-3">
                   {isEditMode ? (
                     <input
                       type="url"
@@ -266,29 +345,37 @@ export default function RecordsTable({
                       }}
                       className="w-40 rounded border border-gray-300 bg-white px-2 py-0.5 text-sm text-gray-900 focus:border-teal-500 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
                     />
-                  ) : record.url ? (
-                    <a
-                      href={record.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title="Ver ruta"
-                      className="inline-flex items-center text-teal-500 hover:text-teal-400 dark:text-teal-400 dark:hover:text-teal-300"
-                    >
-                      <svg
-                        className="h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                      </svg>
-                    </a>
-                  ) : null}
+                  ) : (
+                    <div className="flex flex-col items-center gap-0.5">
+                      <span className={`text-[9px] leading-none ${isExpanded ? 'text-teal-500' : 'text-gray-300 dark:text-gray-600'}`}>
+                        {isExpanded ? '▼' : '▶'}
+                      </span>
+                      {record.url && (
+                        <a
+                          href={record.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="Ver ruta"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center text-teal-500 hover:text-teal-400 dark:text-teal-400 dark:hover:text-teal-300"
+                        >
+                          <svg
+                            className="h-3.5 w-3.5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </td>
 
                 <td className="px-2 py-2 font-medium text-gray-900 dark:text-gray-100 sm:px-4 sm:py-3">
@@ -497,7 +584,58 @@ export default function RecordsTable({
                   )}
                 </td>
               </tr>
-            ))}
+              {isExpanded && (
+                <tr>
+                  <td
+                    colSpan={9}
+                    className="border-b border-gray-100 bg-gray-50 px-4 py-4 dark:border-gray-800 dark:bg-gray-800/50"
+                  >
+                    <div className="flex flex-col gap-3">
+                      <div className="flex flex-wrap items-center gap-2">
+                        {gpxId && (
+                          <a
+                            href={`/gpx/${gpxId}.gpx`}
+                            download
+                            className="inline-flex items-center gap-1 rounded-md bg-teal-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-teal-700"
+                          >
+                            ↓ Descargar GPX
+                          </a>
+                        )}
+                        {record.url && (
+                          <a
+                            href={record.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 rounded-md border border-gray-200 px-3 py-1.5 text-xs font-medium text-gray-600 hover:border-gray-300 dark:border-gray-600 dark:text-gray-300 dark:hover:border-gray-500"
+                          >
+                            Wikiloc ↗
+                          </a>
+                        )}
+                      </div>
+                      {gpxId && gpxCache[rowKey] === undefined && (
+                        <p className="text-xs text-gray-400 dark:text-gray-500">
+                          Cargando altimetría…
+                        </p>
+                      )}
+                      {gpxCache[rowKey] && gpxCache[rowKey]!.length > 0 && (
+                        <ElevationChart
+                          data={gpxCache[rowKey]!}
+                          color={routeColor(record.alturaMaxima)}
+                        />
+                      )}
+                      {gpxCache[rowKey] !== undefined &&
+                        (!gpxCache[rowKey] || gpxCache[rowKey]!.length === 0) && (
+                          <p className="text-xs text-gray-400 dark:text-gray-500">
+                            Sin datos de altimetría disponibles
+                          </p>
+                        )}
+                    </div>
+                  </td>
+                </tr>
+              )}
+              </Fragment>
+              )
+            })}
           </tbody>
         </table>
       </div>
