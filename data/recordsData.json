@@ -122,7 +122,7 @@
   {
     "nombre": "Cascada de Saladillo",
     "localidad": "Campo Quijano",
-    "cantidad": 1,
+    "cantidad": 2,
     "alturaMaxima": 2000,
     "observacion": "En una hora se puede llegar",
     "dificultad": null,
@@ -902,9 +902,9 @@
   {
     "nombre": "Pucara",
     "localidad": "Incamayo",
-    "cantidad": 2,
+    "cantidad": 3,
     "alturaMaxima": 2900,
-    "observacion": "El punto mas alto de la caldera",
+    "observacion": "Tardamos como 4 horas y media en llegar al lugar mas legano y 2 horas y algo en volver",
     "dificultad": null,
     "distancia": 10.89,
     "desnivel": 750,
