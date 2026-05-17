@@ -182,9 +182,11 @@ async function saveRecord(nombre: string, localidad: string, patch: Partial<Trek
 export default function RecordsTable({
   data,
   isEditMode = false,
+  onSelect,
 }: {
   data: TrekkingRecord[]
   isEditMode?: boolean
+  onSelect?: (nombre: string | null) => void
 }) {
   const [localData, setLocalData] = useState<TrekkingRecord[]>(data)
   const [query, setQuery] = useState('')
@@ -246,9 +248,11 @@ export default function RecordsTable({
     const key = `${record.nombre}::${record.localidad}`
     if (expandedKey === key) {
       setExpandedKey(null)
+      onSelect?.(null)
       return
     }
     setExpandedKey(key)
+    onSelect?.(record.nombre)
     if (key in gpxCache) return
     const id = record.gpx ?? extractId(record.url ?? '')
     if (!id) {

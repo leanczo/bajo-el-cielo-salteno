@@ -246,7 +246,13 @@ function ElevationPanel({
 
 // ── main component ────────────────────────────────────────────────────────────
 
-export default function TrekkingMap({ data }: { data: TrekkingRecord[] }) {
+export default function TrekkingMap({
+  data,
+  selectedTrekName,
+}: {
+  data: TrekkingRecord[]
+  selectedTrekName?: string | null
+}) {
   const [routes, setRoutes] = useState<RouteEntry[]>([])
   const [loaded, setLoaded] = useState(0)
   const [selectedId, setSelectedId] = useState<string | null>(null)
@@ -294,6 +300,25 @@ export default function TrekkingMap({ data }: { data: TrekkingRecord[] }) {
 
   const allCoords = useMemo(() => routes.map((r) => r.coords), [routes])
   const isDone = loaded >= total && total > 0
+
+  // Auto-select the highest route once loading finishes (only if nothing is pre-selected)
+  useEffect(() => {
+    if (!isDone || selectedId !== null || routes.length === 0 || selectedTrekName) return
+    const highest = routes.reduce((best, r) =>
+      (r.record.alturaMaxima ?? 0) > (best.record.alturaMaxima ?? 0) ? r : best
+    )
+    setSelectedId(highest.id)
+  }, [isDone]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Sync selection from the table
+  useEffect(() => {
+    if (!selectedTrekName) return
+    const match = routes.find((r) => r.record.nombre === selectedTrekName)
+    if (match) {
+      setSelectedId(match.id)
+      setHoverIdx(null)
+    }
+  }, [selectedTrekName, routes])
   const selectedRoute = useMemo(
     () => routes.find((r) => r.id === selectedId) ?? null,
     [routes, selectedId]
@@ -446,65 +471,6 @@ export default function TrekkingMap({ data }: { data: TrekkingRecord[] }) {
           onHover={setHoverIdx}
         />
       )}
-
-      {/* Altitude ranking */}
-      <div className="border-t border-gray-200 dark:border-gray-700">
-        <div className="p-4">
-          <h3 className="mb-3 text-sm font-semibold text-gray-700 dark:text-gray-300">
-            Puntos más altos
-          </h3>
-          <div className="space-y-0.5">
-            {[...data]
-              .filter((r) => r.alturaMaxima !== null)
-              .sort((a, b) => (b.alturaMaxima ?? 0) - (a.alturaMaxima ?? 0))
-              .slice(0, 10)
-              .map((record, i) => {
-                const route = routes.find((r) => r.record.nombre === record.nombre)
-                const isSelected = route ? route.id === selectedId : false
-                const color = routeColor(record.alturaMaxima)
-                return (
-                  <button
-                    key={record.nombre}
-                    type="button"
-                    disabled={!route}
-                    onClick={() => {
-                      if (!route) return
-                      setSelectedId(route.id)
-                      setHoverIdx(null)
-                    }}
-                    className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-sm transition-colors ${
-                      isSelected
-                        ? 'bg-teal-50 dark:bg-teal-900/20'
-                        : route
-                          ? 'cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800'
-                          : 'cursor-default opacity-40'
-                    }`}
-                  >
-                    <span className="w-4 flex-shrink-0 text-xs font-bold text-gray-300 dark:text-gray-600">
-                      {i + 1}
-                    </span>
-                    <span
-                      className="h-2 w-2 flex-shrink-0 rounded-full"
-                      style={{ background: color }}
-                    />
-                    <span className="min-w-0 flex-1 truncate font-medium text-gray-800 dark:text-gray-200">
-                      {record.nombre}
-                    </span>
-                    <span className="hidden flex-shrink-0 text-xs text-gray-400 dark:text-gray-500 sm:block">
-                      {record.localidad}
-                    </span>
-                    <span
-                      className="flex-shrink-0 font-mono text-xs font-semibold"
-                      style={{ color }}
-                    >
-                      {record.alturaMaxima?.toLocaleString('es-AR')} m
-                    </span>
-                  </button>
-                )
-              })}
-          </div>
-        </div>
-      </div>
     </div>
   )
 }

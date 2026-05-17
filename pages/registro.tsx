@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 import siteMetadata from '@/data/siteMetadata'
 import { recordsData, pendingData, PendingRecord, TrekkingRecord } from '@/data/recordsData'
@@ -67,6 +68,7 @@ const EDIT_SECRET = 'salteno'
 export default function Registro() {
   const router = useRouter()
   const isEditMode = router.query.edit === EDIT_SECRET
+  const [selectedTrekName, setSelectedTrekName] = useState<string | null>(null)
 
   return (
     <>
@@ -121,7 +123,7 @@ export default function Registro() {
           <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-gray-100">
             Mapa de rutas
           </h2>
-          <TrekkingMap data={recordsData} />
+          <TrekkingMap data={recordsData} selectedTrekName={selectedTrekName} />
         </div>
 
         {/* Table */}
@@ -132,7 +134,7 @@ export default function Registro() {
               <span>Modo edición activo — los cambios se guardan automáticamente en el JSON.</span>
             </div>
           )}
-          <RecordsTable data={recordsData} isEditMode={isEditMode} />
+          <RecordsTable data={recordsData} isEditMode={isEditMode} onSelect={setSelectedTrekName} />
         </div>
 
         {/* Recent */}
