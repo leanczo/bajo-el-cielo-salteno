@@ -502,23 +502,25 @@ function MostRepeatedChart({ data }: { data: TrekkingRecord[] }) {
 // ── Public export ───────────────────────────────────────────────────────────
 
 export default function RecordsCharts({ data }: { data: TrekkingRecord[] }) {
-  const [row1, setRow1] = useState(false)
-  const [row2, setRow2] = useState(false)
+  const [open1, setOpen1] = useState(false)
+  const [open2, setOpen2] = useState(false)
+  const [open3, setOpen3] = useState(false)
+  const [open4, setOpen4] = useState(false)
 
   return (
     <div className="space-y-8">
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
         <CollapsibleChartCard
           title="Top 10 por altura máxima"
-          expanded={row1}
-          onToggle={() => setRow1((v) => !v)}
+          expanded={open1}
+          onToggle={() => setOpen1((v) => !v)}
         >
           <TopAltitudeChart data={data} />
         </CollapsibleChartCard>
         <CollapsibleChartCard
           title="Trekkings por localidad"
-          expanded={row1}
-          onToggle={() => setRow1((v) => !v)}
+          expanded={open2}
+          onToggle={() => setOpen2((v) => !v)}
         >
           <LocalityChart data={data} />
         </CollapsibleChartCard>
@@ -526,15 +528,15 @@ export default function RecordsCharts({ data }: { data: TrekkingRecord[] }) {
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
         <CollapsibleChartCard
           title="Distribución por altura"
-          expanded={row2}
-          onToggle={() => setRow2((v) => !v)}
+          expanded={open3}
+          onToggle={() => setOpen3((v) => !v)}
         >
           <AltitudeRangeChart data={data} />
         </CollapsibleChartCard>
         <CollapsibleChartCard
           title="Más repetidos"
-          expanded={row2}
-          onToggle={() => setRow2((v) => !v)}
+          expanded={open4}
+          onToggle={() => setOpen4((v) => !v)}
         >
           <MostRepeatedChart data={data} />
         </CollapsibleChartCard>

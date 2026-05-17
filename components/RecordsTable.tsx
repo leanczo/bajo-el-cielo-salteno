@@ -294,24 +294,32 @@ export default function RecordsTable({
               <th className={`${thClass} text-center`} onClick={() => handleSort('cantidad')}>
                 Veces <SortIcon col="cantidad" />
               </th>
-              <th className={`${thClass} text-right`} onClick={() => handleSort('alturaMaxima')}>
-                <span className="sm:hidden">Alt.</span>
-                <span className="hidden sm:inline">Altura máx.</span>
+              <th
+                className={`${thClass} hidden text-right sm:table-cell`}
+                onClick={() => handleSort('alturaMaxima')}
+              >
+                Altura máx.
                 <SortIcon col="alturaMaxima" />
               </th>
-              <th className={`${thClass} text-right`} onClick={() => handleSort('distancia')}>
-                <span className="sm:hidden">Dist.</span>
-                <span className="hidden sm:inline">Distancia</span>
+              <th
+                className={`${thClass} hidden text-right sm:table-cell`}
+                onClick={() => handleSort('distancia')}
+              >
+                Distancia
                 <SortIcon col="distancia" />
               </th>
-              <th className={`${thClass} text-right`} onClick={() => handleSort('desnivel')}>
-                <span className="sm:hidden">↑ m</span>
-                <span className="hidden sm:inline">Desnivel</span>
+              <th
+                className={`${thClass} hidden text-right sm:table-cell`}
+                onClick={() => handleSort('desnivel')}
+              >
+                Desnivel
                 <SortIcon col="desnivel" />
               </th>
-              <th className={`${thClass} text-center`} onClick={() => handleSort('dificultad')}>
-                <span className="sm:hidden">★</span>
-                <span className="hidden sm:inline">Dificultad</span>
+              <th
+                className={`${thClass} hidden text-center sm:table-cell`}
+                onClick={() => handleSort('dificultad')}
+              >
+                Dificultad
                 <SortIcon col="dificultad" />
               </th>
               <th className="hidden px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 sm:table-cell">
@@ -447,7 +455,7 @@ export default function RecordsTable({
                         </span>
                       )}
                     </td>
-                    <td className="px-2 py-2 text-right text-gray-700 dark:text-gray-300 sm:px-4 sm:py-3">
+                    <td className="hidden px-4 py-3 text-right text-gray-700 dark:text-gray-300 sm:table-cell">
                       {isEditMode ? (
                         <input
                           type="number"
@@ -476,7 +484,7 @@ export default function RecordsTable({
                     </td>
 
                     {/* Distancia */}
-                    <td className="px-2 py-2 text-right text-gray-700 dark:text-gray-300 sm:px-4 sm:py-3">
+                    <td className="hidden px-4 py-3 text-right text-gray-700 dark:text-gray-300 sm:table-cell">
                       {isEditMode ? (
                         <input
                           type="number"
@@ -505,7 +513,7 @@ export default function RecordsTable({
                     </td>
 
                     {/* Desnivel */}
-                    <td className="px-2 py-2 text-right text-gray-700 dark:text-gray-300 sm:px-4 sm:py-3">
+                    <td className="hidden px-4 py-3 text-right text-gray-700 dark:text-gray-300 sm:table-cell">
                       {isEditMode ? (
                         <input
                           type="number"
@@ -534,7 +542,7 @@ export default function RecordsTable({
                     </td>
 
                     {/* Dificultad */}
-                    <td className="px-2 py-2 text-center sm:px-4 sm:py-3">
+                    <td className="hidden px-4 py-3 text-center sm:table-cell">
                       {isEditMode ? (
                         <div className="flex flex-col items-center gap-1">
                           <StarEditor
@@ -604,6 +612,50 @@ export default function RecordsTable({
                         className="border-b border-gray-100 bg-gray-50 px-4 py-4 dark:border-gray-800 dark:bg-gray-800/50"
                       >
                         <div className="flex flex-col gap-3">
+                          {/* Mobile-only detail */}
+                          <div className="sm:hidden">
+                            {record.localidad && (
+                              <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                                {record.localidad}
+                              </p>
+                            )}
+                            <div className="mb-2 flex flex-wrap gap-x-4 gap-y-1 text-sm">
+                              {record.alturaMaxima !== null && (
+                                <span className="text-gray-600 dark:text-gray-400">
+                                  <span className="font-medium text-gray-900 dark:text-gray-100">
+                                    {record.alturaMaxima.toLocaleString('es-AR')} msnm
+                                  </span>
+                                </span>
+                              )}
+                              {record.distancia !== null && (
+                                <span className="text-gray-600 dark:text-gray-400">
+                                  <span className="font-medium text-gray-900 dark:text-gray-100">
+                                    {record.distancia.toLocaleString('es-AR')} km
+                                  </span>
+                                </span>
+                              )}
+                              {record.desnivel !== null && (
+                                <span className="text-gray-600 dark:text-gray-400">
+                                  ↑{' '}
+                                  <span className="font-medium text-gray-900 dark:text-gray-100">
+                                    {record.desnivel.toLocaleString('es-AR')} m
+                                  </span>
+                                </span>
+                              )}
+                            </div>
+                            <div className="mb-2">
+                              <Stars
+                                value={record.dificultad ?? calcDificultad(record.distancia, record.desnivel)}
+                                suggested={record.dificultad === null}
+                              />
+                            </div>
+                            {record.observacion && (
+                              <p className="text-sm text-gray-500 dark:text-gray-400">
+                                {record.observacion}
+                              </p>
+                            )}
+                          </div>
+
                           <div className="flex flex-wrap items-center gap-2">
                             {gpxId && (
                               <a
