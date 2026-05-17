@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo, Fragment } from 'react'
+import { useState, useMemo, useEffect, Fragment } from 'react'
 import dynamic from 'next/dynamic'
 import { TrekkingRecord } from '@/data/recordsData'
 import type { ElevPoint } from '@/components/RowElevationChart'
@@ -156,6 +156,17 @@ function parseGpxElevation(text: string): ElevPoint[] {
   return Array.from({ length: 300 }, (_, i) => points[Math.floor(i * step)])
 }
 
+// ── Share helper ─────────────────────────────────────────────────────────────
+
+function toSlug(s: string) {
+  return s
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '')
+}
+
 // ── Save helper ─────────────────────────────────────────────────────────────
 
 async function saveRecord(nombre: string, localidad: string, patch: Partial<TrekkingRecord>) {
@@ -181,6 +192,46 @@ export default function RecordsTable({
   const [sortDir, setSortDir] = useState<SortDir>('asc')
   const [expandedKey, setExpandedKey] = useState<string | null>(null)
   const [gpxCache, setGpxCache] = useState<Record<string, ElevPoint[] | null>>({})
+  const [copiedKey, setCopiedKey] = useState<string | null>(null)
+
+  // Auto-expand row when URL has ?trek=slug
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const trek = params.get('trek')
+    if (!trek) return
+    const match = data.find((r) => toSlug(r.nombre) === trek)
+    if (!match) return
+    const key = `${match.nombre}::${match.localidad}`
+    setExpandedKey(key)
+    const id = match.gpx ?? extractId(match.url ?? '')
+    if (!id) {
+      setGpxCache((prev) => ({ ...prev, [key]: null }))
+      return
+    }
+    fetch(`/gpx/${id}.gpx`)
+      .then((r) => (r.ok ? r.text() : null))
+      .then((text) =>
+        setGpxCache((prev) => ({ ...prev, [key]: text ? parseGpxElevation(text) : null }))
+      )
+      .catch(() => setGpxCache((prev) => ({ ...prev, [key]: null })))
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  async function shareRecord(record: TrekkingRecord) {
+    const slug = toSlug(record.nombre)
+    const url = `${window.location.origin}${window.location.pathname}?trek=${slug}`
+    const key = `${record.nombre}::${record.localidad}`
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: record.nombre, url })
+      } catch {
+        /* cancelado */
+      }
+    } else {
+      await navigator.clipboard.writeText(url)
+      setCopiedKey(key)
+      setTimeout(() => setCopiedKey((k) => (k === key ? null : k)), 2000)
+    }
+  }
 
   const handleSort = (key: SortKey) => {
     if (key === sortKey) {
@@ -645,7 +696,10 @@ export default function RecordsTable({
                             </div>
                             <div className="mb-2">
                               <Stars
-                                value={record.dificultad ?? calcDificultad(record.distancia, record.desnivel)}
+                                value={
+                                  record.dificultad ??
+                                  calcDificultad(record.distancia, record.desnivel)
+                                }
                                 suggested={record.dificultad === null}
                               />
                             </div>
@@ -676,6 +730,13 @@ export default function RecordsTable({
                                 Wikiloc ↗
                               </a>
                             )}
+                            <button
+                              type="button"
+                              onClick={() => shareRecord(record)}
+                              className="inline-flex items-center gap-1 rounded-md border border-gray-200 px-3 py-1.5 text-xs font-medium text-gray-600 hover:border-gray-300 dark:border-gray-600 dark:text-gray-300 dark:hover:border-gray-500"
+                            >
+                              {copiedKey === rowKey ? '¡Copiado!' : 'Compartir ↗'}
+                            </button>
                           </div>
                           {gpxId && gpxCache[rowKey] === undefined && (
                             <p className="text-xs text-gray-400 dark:text-gray-500">
