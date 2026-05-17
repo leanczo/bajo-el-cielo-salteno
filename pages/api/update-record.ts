@@ -19,6 +19,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     distancia,
     desnivel,
     url,
+    fecha,
   } = req.body
 
   // _nombre/_localidad are the original lookup keys; fallback to nombre/localidad for backwards compat
@@ -52,6 +53,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (distancia !== undefined) records[idx].distancia = distancia
   if (desnivel !== undefined) records[idx].desnivel = desnivel
   if (url !== undefined) records[idx].url = url
+  if (fecha !== undefined) records[idx].fecha = fecha
 
   try {
     fs.writeFileSync(filePath, JSON.stringify(records, null, 2))

@@ -1,12 +1,18 @@
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import siteMetadata from '@/data/siteMetadata'
-import { recordsData, pendingData, PendingRecord } from '@/data/recordsData'
+import { recordsData, pendingData, PendingRecord, TrekkingRecord } from '@/data/recordsData'
 import { PageSEO } from '@/components/SEO'
 import RecordsTable from '@/components/RecordsTable'
 
 const RecordsCharts = dynamic(() => import('@/components/RecordsCharts'), { ssr: false })
 const TrekkingMap = dynamic(() => import('@/components/TrekkingMap'), { ssr: false })
+
+// ── Recientes ───────────────────────────────────────────────────────────────
+
+const recentData = [...recordsData]
+  .filter((r) => r.fecha != null)
+  .sort((a, b) => (b.fecha ?? '').localeCompare(a.fecha ?? ''))
 
 // ── Computed stats ──────────────────────────────────────────────────────────
 
@@ -129,6 +135,18 @@ export default function Registro() {
           <RecordsTable data={recordsData} isEditMode={isEditMode} />
         </div>
 
+        {/* Recent */}
+        {recentData.length > 0 && (
+          <div className="py-8">
+            <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100">Recientes</h2>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {recentData.map((r) => (
+                <RecentCard key={`${r.nombre}-${r.localidad}`} trek={r} />
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Pending */}
         <div className="py-8">
           <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100">Pendientes</h2>
@@ -151,6 +169,81 @@ function StatCard({ label, value, sub }: { label: string; value: string; sub?: s
       </p>
       <p className="mt-1 text-lg font-bold text-teal-600 dark:text-teal-400 sm:text-2xl">{value}</p>
       {sub && <p className="mt-0.5 truncate text-xs text-gray-400 dark:text-gray-500">{sub}</p>}
+    </div>
+  )
+}
+
+function RecentCard({ trek }: { trek: TrekkingRecord }) {
+  const diffLabel = trek.dificultad ? DIFFICULTY_LABEL[trek.dificultad] : null
+  const fechaDisplay = trek.fecha
+    ? new Date(trek.fecha + 'T12:00:00').toLocaleDateString('es-AR', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+      })
+    : null
+
+  return (
+    <div className="rounded-xl border border-teal-200 bg-white p-5 dark:border-teal-800 dark:bg-gray-900">
+      <div className="mb-3 flex items-start justify-between gap-2">
+        <h3 className="font-semibold text-gray-900 dark:text-gray-100">{trek.nombre}</h3>
+        {trek.url && (
+          <a
+            href={trek.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-shrink-0 text-xs text-teal-600 hover:underline dark:text-teal-400"
+          >
+            Ver ruta ↗
+          </a>
+        )}
+      </div>
+
+      {trek.localidad && (
+        <p className="mb-1 text-sm text-gray-500 dark:text-gray-400">{trek.localidad}</p>
+      )}
+
+      {fechaDisplay && (
+        <p className="mb-3 text-xs font-medium text-teal-600 dark:text-teal-400">{fechaDisplay}</p>
+      )}
+
+      <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
+        {trek.distancia !== null && (
+          <span className="text-gray-600 dark:text-gray-400">
+            <span className="font-medium text-gray-900 dark:text-gray-100">
+              {trek.distancia.toLocaleString('es-AR')} km
+            </span>
+          </span>
+        )}
+        {trek.desnivel !== null && (
+          <span className="text-gray-600 dark:text-gray-400">
+            ↑{' '}
+            <span className="font-medium text-gray-900 dark:text-gray-100">
+              {trek.desnivel.toLocaleString('es-AR')} m
+            </span>
+          </span>
+        )}
+        {trek.alturaMaxima !== null && (
+          <span className="text-gray-600 dark:text-gray-400">
+            <span className="font-medium text-gray-900 dark:text-gray-100">
+              {trek.alturaMaxima.toLocaleString('es-AR')} msnm
+            </span>
+          </span>
+        )}
+      </div>
+
+      {trek.dificultad !== null && (
+        <div className="mt-3 flex items-center gap-2">
+          <Stars value={trek.dificultad} />
+          {diffLabel && (
+            <span className="text-xs text-gray-500 dark:text-gray-400">{diffLabel}</span>
+          )}
+        </div>
+      )}
+
+      {trek.observacion && (
+        <p className="mt-3 text-sm text-gray-500 dark:text-gray-400">{trek.observacion}</p>
+      )}
     </div>
   )
 }

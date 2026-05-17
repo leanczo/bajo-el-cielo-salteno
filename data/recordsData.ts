@@ -17,6 +17,8 @@ export type TrekkingRecord = {
   url: string | null
   /** Nombre del archivo GPX en public/gpx/ (sin extensión). Si no se especifica, se deriva de la URL. */
   gpx: string | null
+  /** Fecha de la última visita, formato YYYY-MM-DD */
+  fecha: string | null
 }
 
 export type PendingRecord = {
