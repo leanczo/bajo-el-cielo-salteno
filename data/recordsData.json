@@ -840,6 +840,18 @@
     "url": "https://es.wikiloc.com/rutas-senderismo/minitrekking-hielo-y-aventura-pn-los-glaciares-santa-cruz-argentina-131966808",
     "gpx": "minitrekking-hielo-y-aventura-pn-los-glaciares-santa-cruz-ar"
   },
+    {
+    "nombre": "Colorados cerca de gobernador sola 1",
+    "localidad": "Gobernador Manuel Sola",
+    "cantidad": 1,
+    "alturaMaxima": 2600,
+    "observacion": "Son unos pasando un puente, tardamos 3 horas sacando fotos",
+    "dificultad": null,
+    "distancia": 4,
+    "desnivel": 100,
+    "url": "",
+    "gpx": ""
+  },
   {
     "nombre": "Mirador de la Cruz",
     "localidad": "Cachi",
