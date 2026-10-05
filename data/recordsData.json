@@ -60,6 +60,18 @@
     "gpx": null
   },
   {
+    "nombre": "Cascada de Castellanos",
+    "localidad": "Alemania",
+    "cantidad": 1,
+    "alturaMaxima": 1777,
+    "observacion": "En el primer intento quedamos a un kilometro, hay que aprovechar los senderos y no ir por el rio",
+    "dificultad": null,
+    "distancia": 18,
+    "desnivel": 294,
+    "url": "https://es.wikiloc.com/rutas-senderismo/cascada-castellanos-227519001",
+    "gpx": "cascada-castellanos"
+  },
+  {
     "nombre": "Cascada de Barcena",
     "localidad": "Jujuy",
     "cantidad": 1,
