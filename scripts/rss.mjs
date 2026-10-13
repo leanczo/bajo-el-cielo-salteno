@@ -1,6 +1,8 @@
 import { generateRSS } from 'pliny/utils/generate-rss.js'
 import siteMetadata from '../data/siteMetadata.js'
-import { allBlogs } from '../.contentlayer/generated/index.mjs'
+import { readFileSync } from 'fs'
+
+const allBlogs = JSON.parse(readFileSync('./.contentlayer/generated/Blog/_index.json', 'utf8'))
 
 const rss = () => {
   generateRSS(siteMetadata, allBlogs)

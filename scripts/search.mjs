@@ -1,7 +1,8 @@
-import { writeFileSync } from 'fs'
+import { readFileSync, writeFileSync } from 'fs'
 import { allCoreContent } from 'pliny/utils/contentlayer.js'
-import { allBlogs } from '../.contentlayer/generated/index.mjs'
 import siteMetadata from '../data/siteMetadata.js'
+
+const allBlogs = JSON.parse(readFileSync('./.contentlayer/generated/Blog/_index.json', 'utf8'))
 
 const search = () => {
   if (siteMetadata?.search?.kbarConfig?.searchDocumentsPath) {
