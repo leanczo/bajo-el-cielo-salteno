@@ -63,6 +63,8 @@ export default function ChaltenExpensesChart() {
 
   const outerR = isMobile ? 90 : 120
   const innerR = isMobile ? 50 : 68
+  const activeData = active ? DATA.find((x) => x.name === active) ?? null : null
+  const activePct = activeData ? ((activeData.value / TOTAL) * 100).toFixed(1) : null
 
   return (
     <div className="my-6">
@@ -106,7 +108,10 @@ export default function ChaltenExpensesChart() {
                 active && active !== d.name ? 'opacity-30' : 'text-gray-500 dark:text-gray-400'
               }`}
             >
-              <span className="inline-block h-2.5 w-2.5 rounded-full" style={{ background: d.color }} />
+              <span
+                className="inline-block h-2.5 w-2.5 rounded-full"
+                style={{ background: d.color }}
+              />
               <span>{d.name}</span>
               <span className="font-medium text-gray-700 dark:text-gray-300">{pct}%</span>
             </button>
@@ -115,21 +120,23 @@ export default function ChaltenExpensesChart() {
       </div>
 
       {/* Detail card on click */}
-      {active && (() => {
-        const d = DATA.find((x) => x.name === active)!
-        const pct = ((d.value / TOTAL) * 100).toFixed(1)
-        return (
-          <div className="mt-4 rounded-lg border border-gray-100 bg-gray-50 p-3 dark:border-gray-700 dark:bg-gray-800">
-            <div className="flex items-center gap-2">
-              <span className="inline-block h-3 w-3 rounded-full" style={{ background: d.color }} />
-              <span className="font-semibold text-gray-800 dark:text-gray-200">{d.name}</span>
-            </div>
-            <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
-              {formatARS(d.value)} <span className="text-gray-400">· {pct}% del total</span>
-            </p>
+      {activeData && (
+        <div className="mt-4 rounded-lg border border-gray-100 bg-gray-50 p-3 dark:border-gray-700 dark:bg-gray-800">
+          <div className="flex items-center gap-2">
+            <span
+              className="inline-block h-3 w-3 rounded-full"
+              style={{ background: activeData.color }}
+            />
+            <span className="font-semibold text-gray-800 dark:text-gray-200">
+              {activeData.name}
+            </span>
           </div>
-        )
-      })()}
+          <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+            {formatARS(activeData.value)}{' '}
+            <span className="text-gray-400">· {activePct}% del total</span>
+          </p>
+        </div>
+      )}
 
       <p className="mt-4 text-center text-xs text-gray-400 dark:text-gray-500">
         Total del viaje: {formatARS(TOTAL)} · 10 días · 2 personas
